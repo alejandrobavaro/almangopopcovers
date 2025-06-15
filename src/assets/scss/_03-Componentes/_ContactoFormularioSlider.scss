@@ -1,0 +1,374 @@
+/* Estilos base - Mobile First */
+.cyber-contact-form-slider {
+  position: relative;
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  max-width: 412px;
+  margin: 1rem auto;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.cyber-border-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid transparent;
+  border-image: linear-gradient(135deg, #00f0ff, #ff00f0) 1;
+  animation: borderPulse 4s infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes borderPulse {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
+}
+
+/* Contenedor flexible */
+.cyber-form-slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Columna del formulario */
+.cyber-form-column {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: 1px solid #00f0ff;
+  padding: 1.2rem;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.cyber-form-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0e0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  
+  &::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #ff00f0;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+    animation: glitchEffect 3s infinite alternate;
+  }
+}
+
+.cyber-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cyber-form-group {
+  position: relative;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #00f0ff;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .cyber-input-prefix {
+    color: #ff00f0;
+    margin-right: 0.3rem;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 0.7rem 0.5rem;
+    background-color: rgba(10, 10, 10, 0.8);
+    border: none;
+    border-bottom: 1px solid #00f0ff;
+    font-family: 'Fira Code', monospace;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      background-color: rgba(10, 10, 10, 0.9);
+      border-bottom-color: #ff00f0;
+    }
+
+    &::placeholder {
+      color: rgba(224, 224, 224, 0.4);
+      font-family: 'Fira Code', monospace;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+.cyber-input-line, .cyber-textarea-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.cyber-form-group:focus-within {
+  .cyber-input-line, .cyber-textarea-line {
+    transform: scaleX(1);
+  }
+}
+
+.cyber-submit-btn {
+  position: relative;
+  background: transparent;
+  color: #e0e0e0;
+  border: 1px solid #00f0ff;
+  padding: 0.8rem 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  .btn-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 240, 255, 0.3), rgba(255, 0, 240, 0.3));
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    color: #0a0a0a;
+    border-color: #ff00f0;
+    
+    .btn-glow {
+      opacity: 1;
+    }
+  }
+}
+
+/* Columna del slider */
+.cyber-slider-column {
+  background-color: rgba(26, 26, 26, 0.8);
+  border: 1px solid #ff00f0;
+  padding: 1.2rem;
+  box-shadow: 0 0 15px rgba(255, 0, 240, 0.1);
+}
+
+.cyber-slider-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  
+  .cyber-title-highlight {
+    background: linear-gradient(90deg, #00f0ff, #ff00f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Estilos del slider */
+.cyber-slide {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.cyber-hologram-disk {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(255, 0, 240, 0.2);
+  animation: float 6s ease-in-out infinite;
+}
+
+.cyber-disk-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.cyber-disk-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: hologramPulse 3s infinite alternate;
+}
+
+.cyber-slide-caption {
+  font-family: 'Rajdhani', sans-serif;
+  color: #e0e0e0;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(26, 26, 26, 0.7);
+  padding: 0.5rem 1rem;
+  border: 1px solid #00f0ff;
+}
+
+/* Efecto de scanlines */
+.cyber-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 240, 255, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 100% 3px;
+  pointer-events: none;
+  animation: scanlineScroll 10s linear infinite;
+}
+
+/* Animaciones */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes hologramPulse {
+  0% { opacity: 0.3; transform: scale(0.95); }
+  100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes glitchEffect {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-3px); }
+  40% { transform: translateX(3px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes scanlineScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Flechas del slider personalizadas */
+.slick-prev, .slick-next {
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  
+  &::before {
+    font-size: 30px;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #ff00f0;
+  }
+}
+
+.slick-prev {
+  left: -35px;
+}
+
+.slick-next {
+  right: -35px;
+}
+
+/* Breakpoints */
+@media (min-width: 768px) {
+  .cyber-contact-form-slider {
+    max-width: 700px;
+    padding: 1.5rem;
+  }
+  
+  .cyber-form-slider-container {
+    flex-direction: row;
+  }
+  
+  .cyber-form-column, 
+  .cyber-slider-column {
+    flex: 1;
+  }
+  
+  .cyber-hologram-disk {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .slick-prev {
+    left: -40px;
+  }
+  
+  .slick-next {
+    right: -40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cyber-contact-form-slider {
+    max-width: 900px;
+    padding: 2rem;
+  }
+  
+  .cyber-form-title {
+    font-size: 1.5rem;
+  }
+  
+  .cyber-slider-title {
+    font-size: 1.4rem;
+  }
+  
+  .cyber-hologram-disk {
+    width: 220px;
+    height: 220px;
+  }
+}

@@ -1,0 +1,112 @@
+// Variables de estilo retro
+$purple-dark: #2a1e5c;
+$purple-light: #4a2f9e;
+$gold: #f4e87c;
+$pink-neon: #ff6b6b;
+$blue-night: #1a0933;
+$red-intense: #e91e63;
+$turquoise: #b8d8d8;
+
+// Estilos del contenedor de productos retro
+.retro-products-container {
+  position: relative;
+  padding: 20px;
+  background: linear-gradient(135deg, $blue-night 0%, $purple-dark 100%);
+  min-height: 60vh;
+  overflow: hidden;
+}
+
+// Efecto VHS
+.retro-products-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 4px 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+// Estilos de carga retro
+.retro-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: $gold;
+  font-family: 'Rubik Mono One', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  p {
+    margin-top: 20px;
+    text-shadow: 1px 1px 0 $pink-neon;
+    animation: pulse 1.5s infinite;
+  }
+}
+
+.vinyl-spinner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(
+    $pink-neon, $red-intense, $purple-light, $purple-dark, $blue-night, $purple-dark, $purple-light, $red-intense, $pink-neon
+  );
+  border: 5px solid $gold;
+  box-shadow: 
+    0 0 20px rgba($pink-neon, 0.5),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  animation: spin 2s linear infinite;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: $gold;
+    border-radius: 50%;
+    border: 2px solid $purple-dark;
+  }
+}
+
+// Animaciones
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .retro-products-container {
+    padding: 10px;
+  }
+  
+  .retro-loading {
+    height: 200px;
+    
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .vinyl-spinner {
+    width: 60px;
+    height: 60px;
+  }
+}

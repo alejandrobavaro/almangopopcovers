@@ -1,0 +1,234 @@
+/* -------------------------------------------- */
+/* HEADER COMPACTO - UNA SOLA LÍNEA */
+/* -------------------------------------------- */
+
+.cyber-header-single-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.cyber-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Logo compacto */
+.cyber-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.cyber-logo-icon {
+  height: 30px;
+  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.7));
+}
+
+.cyber-logo-text {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Búsqueda integrada */
+.cyber-search-integrated {
+  flex: 1;
+  max-width: 400px;
+  transition: all 0.3s ease;
+
+  &.mobile-visible {
+    display: block;
+  }
+}
+
+.cyber-search-terminal {
+  display: flex;
+  align-items: center;
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+.cyber-prompt {
+  color: #00f0ff;
+  font-family: 'Fira Code', monospace;
+  margin-right: 0.5rem;
+}
+
+.cyber-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  outline: none;
+
+  &::placeholder {
+    color: rgba(224, 224, 224, 0.3);
+    font-size: 0.8rem;
+  }
+}
+
+/* Menú compacto */
+.cyber-nav-compact {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.cyber-nav-item {
+  position: relative;
+  padding: 0.5rem 0;
+  text-decoration: none;
+
+  &:hover {
+    .cyber-nav-code {
+      color: #00f0ff;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
+    }
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, #00f0ff, transparent);
+    transition: width 0.3s ease;
+  }
+}
+
+.cyber-nav-code {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+
+/* Auth compacto */
+.cyber-auth-compact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cyber-auth-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    .cyber-auth-code {
+      color: #ff00f0;
+      text-shadow: 0 0 8px rgba(255, 0, 240, 0.7);
+    }
+  }
+}
+
+.cyber-auth-code {
+  font-family: 'Fira Code', monospace;
+  color: #e0e0e0;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+/* Mobile */
+.cyber-mobile-search-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #00f0ff;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.cyber-search-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cyber-header-container {
+    padding: 0 1.5rem;
+    gap: 1rem;
+  }
+
+  .cyber-nav-compact {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyber-header-container {
+    padding: 0 1rem;
+  }
+
+  .cyber-search-integrated {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: #0a0a0a;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+
+    &.mobile-visible {
+      display: block;
+    }
+  }
+
+  .cyber-nav-compact {
+    display: none;
+  }
+
+  .cyber-mobile-search-toggle {
+    display: block;
+  }
+
+  .cyber-auth-code {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-logo-text {
+    display: none;
+  }
+
+  .cyber-auth-code {
+    &[data-full="true"] {
+      display: none;
+    }
+  }
+}

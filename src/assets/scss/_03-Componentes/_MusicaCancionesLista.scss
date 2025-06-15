@@ -1,0 +1,164 @@
+/* Estilos Mobile-First (hasta 412px) */
+.music-archive {
+  background: rgba(10, 15, 26, 0.5);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  max-width: 412px;
+  margin: 0 auto;
+}
+
+.archive-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.archive-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.archive-title {
+  margin: 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Rajdhani', sans-serif;
+  
+  .title-gradient {
+    background: linear-gradient(90deg, #00f0ff, #4df0d7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+  }
+  
+  .title-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px #00f0ff;
+    margin-left: 8px;
+  }
+}
+
+.archive-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
+  .counter-value {
+    color: #4df0d7;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  
+  .counter-label {
+    color: rgba(224, 224, 224, 0.7);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.category-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Rajdhani', sans-serif;
+  
+  &:hover {
+    background: rgba(0, 240, 255, 0.2);
+  }
+  
+  &.active {
+    background: #00f0ff;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(224, 224, 224, 0.5);
+  
+  .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: rgba(0, 240, 255, 0.3);
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  .empty-sub {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: rgba(224, 224, 224, 0.3);
+  }
+}
+
+/* Tablet (768px en adelante) */
+@media (min-width: 768px) {
+  .music-archive {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .archive-title {
+    font-size: 1.8rem;
+  }
+  
+  .counter-value {
+    font-size: 2rem;
+  }
+  
+  .music-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (1024px en adelante) */
+@media (min-width: 1024px) {
+  .music-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .archive-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .category-selector {
+    margin-bottom: 0;
+  }
+}

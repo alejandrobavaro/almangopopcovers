@@ -1,0 +1,308 @@
+// Variables de estilo retro
+$purple-dark: #2a1e5c;
+$purple-light: #4a2f9e;
+$gold: #f4e87c;
+$pink-neon: #ff6b6b;
+$blue-night: #1a0933;
+$red-intense: #e91e63;
+$turquoise: #b8d8d8;
+
+// Mixins
+@mixin retro-text($color, $shadow-color) {
+  color: $color;
+  text-shadow: 2px 2px 0 $shadow-color, 4px 4px 0 darken($shadow-color, 20%);
+  letter-spacing: 2px;
+}
+
+@mixin retro-box {
+  border: 3px solid $gold;
+  box-shadow: 
+    5px 5px 0 $pink-neon,
+    10px 10px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+// Estilos generales
+.retro-auth-system {
+  font-family: 'Rubik Mono One', 'Arial Narrow', sans-serif;
+  background: linear-gradient(135deg, $blue-night 0%, $purple-dark 100%);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.retro-auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.1"/></svg>');
+}
+
+// Estilo de cartel de concierto (Login)
+.concert-poster {
+  @include retro-box;
+  background: linear-gradient(145deg, $purple-light, $purple-dark);
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  transform: rotate(-1deg);
+  animation: float 6s ease-in-out infinite;
+
+  .poster-border {
+    border: 2px dashed $gold;
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .poster-title {
+    @include retro-text($gold, $pink-neon);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .poster-image {
+    text-align: center;
+    margin: 1rem 0;
+    
+    img {
+      max-width: 150px;
+      filter: drop-shadow(0 0 5px rgba($gold, 0.7));
+      transition: transform 0.5s ease;
+      
+      &:hover {
+        transform: rotate(5deg) scale(1.1);
+      }
+    }
+  }
+
+  .poster-footer {
+    @include retro-text($turquoise, $blue-night);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+}
+
+// Estilo de formulario de membresía (Register)
+.membership-form {
+  @include retro-box;
+  background: linear-gradient(145deg, $purple-dark, $blue-night);
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  transform: rotate(1deg);
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    h2 {
+      @include retro-text($pink-neon, $gold);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cassette-decoration {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        $gold,
+        $gold 20px,
+        $pink-neon 20px,
+        $pink-neon 40px
+      );
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+
+  .form-images {
+    text-align: center;
+    margin: 1rem 0;
+
+    .form-image {
+      max-width: 120px;
+      filter: hue-rotate(0deg);
+      transition: filter 0.5s ease, transform 0.5s ease;
+      
+      &:hover {
+        filter: hue-rotate(60deg);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .form-footer {
+    @include retro-text($gold, $purple-dark);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+// Estilos comunes de formulario
+.retro-auth-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      @include retro-text($turquoise, $blue-night);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .retro-input {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(black, 0.3);
+    border: 2px solid $gold;
+    color: white;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $pink-neon;
+      box-shadow: 0 0 10px $pink-neon;
+      background: rgba($pink-neon, 0.1);
+    }
+  }
+
+  .retro-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(145deg, $pink-neon, $red-intense);
+    border: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, $gold, $turquoise);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    &:hover {
+      color: $blue-night;
+
+      &::before {
+        left: 0;
+      }
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+    }
+  }
+}
+
+// Spinner estilo vinilo
+.retro-loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba($blue-night, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .vinyl-spinner {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #111, #333);
+    border: 4px solid $gold;
+    position: relative;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 20px rgba($pink-neon, 0.5);
+
+    .vinyl-label {
+      position: absolute;
+      width: 40%;
+      height: 40%;
+      background: linear-gradient(145deg, $pink-neon, $red-intense);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .vinyl-center {
+      position: absolute;
+      width: 10%;
+      height: 10%;
+      background: $gold;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+  }
+
+  .loading-text {
+    @include retro-text($gold, $pink-neon);
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+}
+
+// Animaciones
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(-1deg); }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .concert-poster, .membership-form {
+    transform: none !important;
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  .poster-title, .form-header h2 {
+    font-size: 1.4rem !important;
+  }
+}

@@ -1,0 +1,323 @@
+/* -------------------------------------------- */
+/* MAIN CONTENT - CYBERPUNK FUTURIST STYLE */
+/* -------------------------------------------- */
+
+.cyber-main-content {
+  background: 
+    radial-gradient(circle at center, #0a0a1a 0%, #000000 100%),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px;
+  padding: 4rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sección de media */
+.cyber-media-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cyber-section-title {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 3.5rem;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cyber-title-gradient {
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 0 1rem;
+}
+
+.cyber-title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #00f0ff;
+  padding: 0 1rem;
+}
+
+/* Grid de media */
+.cyber-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 1rem;
+}
+
+/* Tarjetas de media */
+.cyber-media-card {
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 240, 255, 0.5);
+    box-shadow: 
+      0 10px 25px rgba(0, 240, 255, 0.2),
+      0 0 30px rgba(0, 240, 255, 0.1);
+
+    .cyber-media-glitch {
+      opacity: 0.3;
+    }
+  }
+}
+
+.cyber-media-hologram {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cyber-media-image {
+  width: 80%;
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.cyber-media-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, 
+      transparent 45%, 
+      rgba(255, 0, 240, 0.1) 50%, 
+      transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyber-media-info {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.cyber-media-title {
+  font-family: 'Rajdhani', sans-serif;
+  color: #00f0ff;
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.cyber-media-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+}
+
+.cyber-media-year {
+  color: #ff00f0;
+}
+
+.cyber-media-format {
+  color: #00f0ff;
+}
+
+.cyber-media-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.cyber-media-button {
+  position: relative;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  transition: all 0.3s ease;
+  flex: 1;
+
+  &.alt {
+    border-color: rgba(255, 0, 240, 0.3);
+  }
+
+  &:hover {
+    color: #0a0a0a;
+    
+    .cyber-button-hover {
+      transform: translateY(0);
+    }
+  }
+}
+
+.cyber-button-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.cyber-media-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(transparent, rgba(0, 240, 255, 0.05));
+  pointer-events: none;
+}
+
+/* Divisor */
+.cyber-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.cyber-divider-line {
+  height: 1px;
+  flex-grow: 1;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    #00f0ff, 
+    #ff00f0, 
+    transparent
+  );
+  margin: 0 1.5rem;
+}
+
+.cyber-divider-icon {
+  color: #00f0ff;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #ff00f0;
+}
+
+/* Sección del logo */
+.cyber-logo-section {
+  text-align: center;
+  padding: 4rem 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+.cyber-main-logo {
+  max-width: 600px;
+  width: 90%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
+  transition: all 0.5s ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 0, 240, 0.7));
+  }
+}
+
+.cyber-tagline {
+  font-family: 'Rajdhani', sans-serif;
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+
+  span {
+    color: #00f0ff;
+    margin: 0 0.5rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cyber-section-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .cyber-media-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cyber-media-card {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .cyber-main-logo {
+    max-width: 350px;
+  }
+
+  .cyber-tagline {
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cyber-media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* Animación de giro para vinilos */
+.spinning {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Efecto hover para vinilos */
+.cyber-media-card:hover .spinning {
+  animation: spin 2s linear infinite, psychedelic 5s linear infinite;
+}
+
+@keyframes psychedelic {
+  0% { filter: hue-rotate(0deg) drop-shadow(0 0 15px rgba(0, 240, 255, 0.4)); }
+  50% { filter: hue-rotate(180deg) drop-shadow(0 0 15px rgba(255, 0, 240, 0.4)); }
+  100% { filter: hue-rotate(360deg) drop-shadow(0 0 15px rgba(0, 240, 255, 0.4)); }
+}
+
+/* Ajustes para el logo retro */
+.cyber-main-logo {
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5)) 
+          hue-rotate(-10deg);
+  
+  &:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 0, 240, 0.7))
+            hue-rotate(10deg);
+  }
+}

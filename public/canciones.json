@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "nombre": "MIX CCR Bonnie Tyler",
+    "artista": "Intro",
+    "url": "/audio/00-Intro&01-MIX-CCR-BonnieTyler.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-1.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Stand by Me / Every Breath",
+    "artista": "The Beatles + Police",
+    "url": "/audio/03-Beatles - Stand by me & Police - Every Breath.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-2.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Angels & Beatles - Hey Jude",
+    "artista": "RW",
+    "url": "/audio/06-RW - Angels & Beatles - Hey Jude.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-3.png"
+  },
+  {
+    "id": 4,
+    "nombre": "What's Going On",
+    "artista": "Four Non Blondes",
+    "url": "/audio/07-Four Non Blondes - What's Going On.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-4.png"
+  },
+  {
+    "id": 5,
+    "nombre": "I Want to Break Free",
+    "artista": "Queen + Radio GaGa",
+    "url": "/audio/09-Queen-RadioGaGa-Queen-Iwanttobreakfree.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-5.png"
+  },
+  {
+    "id": 6,
+    "nombre": "Take on Me",
+    "artista": "A-ha",
+    "url": "/audio/10-A-ha - Take on me.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-6.png"
+  },
+  {
+    "id": 7,
+    "nombre": "Spending My Time / Listen to Your Heart",
+    "artista": "Cranberries-Zombie-Roxette",
+    "url": "/audio/11-Cranberries-Zombie-Roxette- Spending my time & Listen to your.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-7.png"
+  },
+  {
+    "id": 8,
+    "nombre": "Still Got the Blues / Never Tear Us Apart",
+    "artista": "Gary Moore + INXS",
+    "url": "/audio/12-GaryMoore-StillGottheBlues-INXS-NeverTear.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-8.png"
+  },
+  {
+    "id": 9,
+    "nombre": "Another Day U2 / Without You / Time of My Life",
+    "artista": "Phil Collins + Bill Medley",
+    "url": "/audio/13-PhillCollins-AnotheDayU2-WithOrWithout-BillMedley-Timeof.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-9.png"
+  },
+  {
+    "id": 10,
+    "nombre": "A Little Respect / Just Can't Get Enough / Venus",
+    "artista": "Erasure + Depeche Mode + Bananarama",
+    "url": "/audio/14-Erasure-AlittleRespect-Depche-JustCan't-Bananarama-Venus.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-10.png"
+  },
+  {
+    "id": 11,
+    "nombre": "Fix You / Yellow",
+    "artista": "Coldplay",
+    "url": "/audio/15-Coldplay-FixYou-JamesBlunt-YoureBeautiful-Coldplay-Yellow.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-11.png"
+  },
+  {
+    "id": 12,
+    "nombre": "Wicked Game / The Best",
+    "artista": "Chris Isaak + Tina Turner",
+    "url": "/audio/16-Chris Isaak-WickedGame-TinaTurner-TheBest.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-12.png"
+  },
+  {
+    "id": 13,
+    "nombre": "Your Love",
+    "artista": "The Outfield",
+    "url": "/audio/17-The Outfield - Your Love.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-13.png"
+  },
+  {
+    "id": 14,
+    "nombre": "Losing My Religion / It’s My Life",
+    "artista": "REM + Bon Jovi",
+    "url": "/audio/18-REM-Losingmyreligion-BonJovi-ItsmyLife.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-14.png"
+  },
+  {
+    "id": 15,
+    "nombre": "Bridge to Bobe With John / You Are the Voice",
+    "artista": "Red Hot Chili Peppers + John Farnham",
+    "url": "/audio/19-RedHot-UndertheBridge-MrBig-TobeWith-JohnFarman-YouaretheVoice.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-15.png"
+  },
+  {
+    "id": 16,
+    "nombre": "Mystify / I Don't Wanna / Friday I'm in Love",
+    "artista": "INXS + Elton John + The Cure",
+    "url": "/audio/20-INXS-Mystify-ElthonJohn-Idontwanna-TheCure-FridayimInLove.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-16.png"
+  },
+  {
+    "id": 17,
+    "nombre": "Heroes / Under Pressure",
+    "artista": "David Bowie + Queen",
+    "url": "/audio/21-DavidBowie-Heroes-Queen-UnderPressure.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-17.png"
+  },
+  {
+    "id": 18,
+    "nombre": "You Get What You Give / I Can't Stop Loving You",
+    "artista": "New Radicals + Van Halen",
+    "url": "/audio/22-NewRadicals-YougetWhatyou-VanHalen-Icantstoploving.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-18.png"
+  },
+  {
+    "id": 19,
+    "nombre": "One More Night / I Don't Wanna / Cryin'",
+    "artista": "Phil Collins + Shania Twain + Aerosmith",
+    "url": "/audio/23-PhilCollins-OneMoreNight-Shanaia-Stillthe-RodSt-Idontwna-Aeros-Cryin.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-19.png"
+  },
+  {
+    "id": 20,
+    "nombre": "Crazy / Travelin' Band",
+    "artista": "Queen + CCR",
+    "url": "/audio/24-Queen-Crazy-CCR-TravelinBand.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-20.png"
+  },
+  {
+    "id": 21,
+    "nombre": "Walk of Life / Footloose",
+    "artista": "Dire Straits + Kenny Loggins",
+    "url": "/audio/25-DireStraits-WalkofLife-KennyLoggins-Footloose.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-21.png"
+  },
+  {
+    "id": 22,
+    "nombre": "Pretty Woman / That Thing You Do",
+    "artista": "Roy Orbison + The Wonders",
+    "url": "/audio/26-RoyOrbison-PrettyWoman-TheWonders-ThatThingYouDo.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-22.png"
+  },
+  {
+    "id": 23,
+    "nombre": "Ain't No Sunshine / Away",
+    "artista": "Bill Withers + Paul Young",
+    "url": "/audio/27-BillWithers-AintNoSunshine-PaulYoung-Away.mp3",
+    "imagen": "/img/08-tapas-audio/cancion-23.png"
+  }
+]

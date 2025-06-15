@@ -1,0 +1,65 @@
+/* Mobile-First (hasta 412px) */
+.music-app {
+  padding-bottom: 120px;
+  max-width: 412px;
+  margin: 0 auto;
+}
+
+.loading-screen,
+.error-screen {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  p {
+    margin-top: 20px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 1px;
+  }
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #00f0ff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+.error-screen {
+  color: #ff0033;
+  
+  .error-detail {
+    color: rgba(224, 224, 224, 0.7);
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Tablet (768px en adelante) */
+@media (min-width: 768px) {
+  .music-app {
+    max-width: 100%;
+    padding: 20px 20px 150px;
+  }
+}
+
+/* Desktop (1024px en adelante) */
+@media (min-width: 1024px) {
+  .music-app {
+    padding: 30px 30px 160px;
+  }
+  
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+  }
+}

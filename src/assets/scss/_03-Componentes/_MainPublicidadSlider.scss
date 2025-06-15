@@ -1,0 +1,431 @@
+/* -------------------------------------------- */
+/* PUBLICIDAD SLIDER - CYBERPUNK FUTURIST STYLE */
+/* -------------------------------------------- */
+
+.cyber-publicidad-container {
+  position: relative;
+  background: 
+    radial-gradient(circle at center, #0a0a1a 0%, #000000 100%),
+    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 2rem 0;
+  margin: 4rem auto;
+  max-width: 1400px;
+  overflow: hidden;
+}
+
+.cyber-scan-bar {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.6),
+    transparent
+  );
+  margin: 0.5rem 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 70%);
+  }
+}
+
+.cyber-slider-wrapper {
+  position: relative;
+  z-index: 2;
+  padding: 0 2rem;
+}
+
+.cyber-section-title {
+  text-align: center;
+  margin: 2rem 0 3rem;
+  position: relative;
+}
+
+.cyber-title-badge {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.8rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  background: rgba(26, 26, 26, 0.7);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 240, 255, 0.1),
+      transparent
+    );
+    animation: scanline 6s linear infinite;
+  }
+}
+
+/* Slider principal */
+.cyber-main-slider {
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+.cyber-slide {
+  outline: none;
+}
+
+.cyber-slide-content {
+  position: relative;
+  padding: 1rem;
+}
+
+.cyber-slide-hologram {
+  position: relative;
+  padding: 2rem;
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.cyber-slide-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.3));
+  transition: all 0.5s ease;
+  
+  &:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 0, 240, 0.5));
+  }
+}
+
+.cyber-slide-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, 
+      transparent 45%, 
+      rgba(255, 0, 240, 0.1) 50%, 
+      transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyber-slide:hover .cyber-slide-glitch {
+  opacity: 0.3;
+}
+
+/* Etiqueta de precio */
+.cyber-price-tag {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0, 240, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  padding: 0.8rem 1.5rem;
+  font-family: 'Fira Code', monospace;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cyber-price-currency {
+  color: #ff00f0;
+  font-weight: bold;
+}
+
+.cyber-price-value {
+  color: #00f0ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Sticker de oferta */
+.cyber-sticker {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 0, 240, 0.1);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(255, 0, 240, 0.5);
+  padding: 0.5rem 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cyber-sticker-text {
+  color: #ff00f0;
+  position: relative;
+  z-index: 2;
+}
+
+.cyber-sticker-pulse {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #ff00f0;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* Info del producto */
+.cyber-product-info {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  max-width: 300px;
+  background: rgba(26, 26, 26, 0.7);
+  padding: 1rem;
+  border-left: 3px solid #00f0ff;
+}
+
+.cyber-product-name {
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.cyber-product-code {
+  color: rgba(224, 224, 224, 0.7);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Miniaturas estilo terminal */
+.cyber-thumbnails-title {
+  font-family: 'Fira Code', monospace;
+  color: #00f0ff;
+  text-align: center;
+  margin: 3rem 0 1.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.cyber-thumbnails-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.cyber-thumbnail {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100px;
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .cyber-thumbnail-frame {
+      border-color: #ff00f0;
+      box-shadow: 0 0 15px rgba(255, 0, 240, 0.3);
+    }
+  }
+}
+
+.cyber-thumbnail-frame {
+  width: 100%;
+  height: 100px;
+  border: 2px solid rgba(0, 240, 255, 0.3);
+  padding: 0.5rem;
+  background: rgba(26, 26, 26, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cyber-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) contrast(120%);
+  transition: all 0.3s ease;
+}
+
+.cyber-thumbnail:hover .cyber-thumbnail-image {
+  filter: grayscale(0%) contrast(130%);
+}
+
+.cyber-thumbnail-id {
+  font-family: 'Fira Code', monospace;
+  color: rgba(0, 240, 255, 0.7);
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Flechas personalizadas */
+.cyber-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  
+  span {
+    color: #00f0ff;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &:hover {
+    span {
+      color: #ff00f0;
+    }
+    
+    .cyber-arrow-core {
+      background: rgba(255, 0, 240, 0.3);
+    }
+  }
+}
+
+.cyber-arrow-core {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 240, 255, 0.1);
+  backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+  transition: all 0.3s ease;
+}
+
+.cyber-next {
+  right: -80px;
+  
+  &:hover {
+    transform: translateY(-50%) translateX(10px);
+  }
+}
+
+.cyber-prev {
+  left: -80px;
+  
+  .cyber-arrow-core {
+    transform: rotateY(180deg);
+  }
+  
+  &:hover {
+    transform: translateY(-50%) translateX(-10px);
+  }
+}
+
+/* Animaciones */
+@keyframes scanline {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cyber-next {
+    right: -30px;
+  }
+  
+  .cyber-prev {
+    left: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyber-title-badge {
+    font-size: 1.3rem;
+    padding: 0.6rem 1.5rem;
+  }
+  
+  .cyber-arrow {
+    width: 40px;
+    height: 40px;
+    
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .cyber-price-tag {
+    padding: 0.5rem 1rem;
+    bottom: 20px;
+    right: 20px;
+    
+    .cyber-price-value {
+      font-size: 1.3rem;
+    }
+  }
+  
+  .cyber-product-info {
+    bottom: 20px;
+    left: 20px;
+    max-width: 200px;
+    padding: 0.8rem;
+  }
+  
+  .cyber-product-name {
+    font-size: 1rem;
+  }
+  
+  .cyber-thumbnail {
+    width: 80px;
+  }
+  
+  .cyber-thumbnail-frame {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-slider-wrapper {
+    padding: 0 1rem;
+  }
+  
+  .cyber-title-badge {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  .cyber-thumbnails-title {
+    font-size: 1rem;
+  }
+}

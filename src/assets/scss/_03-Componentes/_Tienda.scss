@@ -1,0 +1,247 @@
+// Variables de estilo neon rock
+$neon-pink: #ff00ff;
+$neon-cyan: #00ffff;
+$neon-purple: #9d00ff;
+$black-light: #111;
+$white-neon: #f0f0f0;
+$stage-yellow: #ffe600;
+
+// Mixins
+@mixin neon-glow($color) {
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px $color,
+    0 0 20px $color,
+    0 0 40px $color;
+  box-shadow: 
+    0 0 5px #fff,
+    0 0 10px $color,
+    0 0 20px $color;
+}
+
+@mixin stage-light($color) {
+  background: radial-gradient(
+    circle at center,
+    rgba($color, 0.8) 0%,
+    rgba($color, 0.1) 50%,
+    transparent 70%
+  );
+}
+
+// Estilos generales
+.concert-tienda-container {
+  position: relative;
+  min-height: 100vh;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba($neon-purple, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba($neon-cyan, 0.1) 0%, transparent 30%),
+    linear-gradient(to bottom, $black-light 0%, #000 100%);
+  padding: 2rem;
+  font-family: 'Rajdhani', 'Arial Narrow', sans-serif;
+  color: $white-neon;
+  overflow: hidden;
+  
+  &.pulse-effect {
+    animation: pulse 0.5s ease-in-out;
+  }
+  
+  &.concert-mode {
+    background: 
+      radial-gradient(circle at 20% 30%, rgba($neon-purple, 0.3) 0%, transparent 30%),
+      radial-gradient(circle at 80% 70%, rgba($neon-cyan, 0.3) 0%, transparent 30%),
+      linear-gradient(to bottom, #000 0%, $black-light 100%);
+    
+    .product-card {
+      @include neon-glow($neon-pink);
+      border-color: $neon-cyan;
+    }
+    
+    .cart-item {
+      @include neon-glow($neon-cyan);
+    }
+  }
+}
+
+// Efectos especiales
+.stage-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  animation: stageLightShow 3s forwards;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    @include stage-light($neon-pink);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 20%;
+    width: 30%;
+    height: 30%;
+    @include stage-light($neon-cyan);
+  }
+}
+
+.smoke-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/smoke-effect.png') center/cover no-repeat;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.1;
+  mix-blend-mode: screen;
+}
+
+.concert-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background: $black-light;
+  color: $white-neon;
+  border: 2px solid $neon-cyan;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  &:hover {
+    @include neon-glow($neon-pink);
+    background: $neon-purple;
+    transform: scale(1.05);
+  }
+}
+
+.concert-tienda-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Estilos para SweetAlert2 personalizado
+.neon-swal {
+  background: $black-light !important;
+  color: $white-neon !important;
+  border: 2px solid $neon-cyan !important;
+  @include neon-glow($neon-pink);
+  
+  .swal2-title {
+    color: $neon-cyan;
+    @include neon-glow($neon-pink);
+  }
+  
+  .swal2-content {
+    color: $white-neon;
+  }
+}
+
+.neon-swal-button {
+  border: none !important;
+  font-weight: bold !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    transform: translateY(-2px) !important;
+    @include neon-glow($neon-pink);
+  }
+  
+  &.swal2-confirm {
+    background: $neon-pink !important;
+    color: #000 !important;
+    
+    &:hover {
+      background: lighten($neon-pink, 10%) !important;
+    }
+  }
+  
+  &.swal2-cancel {
+    background: transparent !important;
+    color: $neon-cyan !important;
+    border: 2px solid $neon-cyan !important;
+    
+    &:hover {
+      background: rgba($neon-cyan, 0.1) !important;
+    }
+  }
+}
+
+// Toastify personalizado
+.toastify-tienda-neon {
+  font-family: 'Rajdhani', sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  border-radius: 0 !important;
+  border: 2px solid $neon-cyan !important;
+  font-weight: bold !important;
+  
+  .toast-close {
+    color: $white-neon !important;
+    opacity: 1 !important;
+    font-weight: bold !important;
+  }
+}
+
+// Animaciones
+@keyframes pulse {
+  0% { filter: brightness(100%); }
+  50% { filter: brightness(130%); }
+  100% { filter: brightness(100%); }
+}
+
+@keyframes stageLightShow {
+  0% { opacity: 0; }
+  20% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    @include neon-glow($neon-pink);
+  }
+  20%, 22%, 24%, 55% {
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .concert-tienda-container {
+    padding: 1rem;
+  }
+  
+  .concert-tienda-content {
+    flex-direction: column;
+  }
+  
+  .concert-mode-toggle {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}

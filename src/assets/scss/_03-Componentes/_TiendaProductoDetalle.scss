@@ -1,0 +1,169 @@
+// Variables de estilo retro
+$purple-dark: #2a1e5c;
+$purple-light: #4a2f9e;
+$gold: #f4e87c;
+$pink-neon: #ff6b6b;
+$blue-night: #1a0933;
+$red-intense: #e91e63;
+$turquoise: #b8d8d8;
+
+// Estilos del detalle de producto retro
+.retro-product-detail {
+  position: relative;
+  background: linear-gradient(145deg, $blue-night, $purple-dark);
+  border: 3px solid $gold;
+  border-radius: 10px;
+  padding: 25px;
+  color: $gold;
+  box-shadow: 
+    5px 5px 0 $pink-neon,
+    0 0 30px rgba($pink-neon, 0.3);
+  font-family: 'Rubik Mono One', sans-serif;
+  animation: fadeIn 0.5s ease;
+  overflow: hidden;
+}
+
+.cassette-tape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    $gold,
+    $gold 20px,
+    $pink-neon 20px,
+    $pink-neon 40px
+  );
+}
+
+.retro-detail-title {
+  font-size: 1.5rem;
+  color: $pink-neon;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 
+    2px 2px 0 $gold,
+    4px 4px 0 rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  
+  .vinyl-icon {
+    font-size: 1.2rem;
+    animation: spin 5s linear infinite;
+  }
+}
+
+.retro-detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.detail-vinyl-frame {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid $gold;
+  box-shadow: 
+    inset 0 0 15px rgba(0, 0, 0, 0.5),
+    0 0 25px $pink-neon;
+  flex-shrink: 0;
+}
+
+.detail-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vinyl-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: $gold;
+  border-radius: 50%;
+  border: 3px solid $purple-dark;
+  z-index: 2;
+}
+
+.retro-detail-info {
+  flex: 1;
+}
+
+.retro-detail-item {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  
+  .detail-label {
+    color: $turquoise;
+    margin-right: 10px;
+    font-weight: bold;
+    flex: 0 0 120px;
+  }
+  
+  .detail-value {
+    flex: 1;
+    color: white;
+    
+    &.neon {
+      color: $gold;
+      text-shadow: 0 0 5px $pink-neon;
+      font-weight: bold;
+    }
+    
+    &.description {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .retro-detail-title {
+    font-size: 1.2rem;
+  }
+  
+  .detail-vinyl-frame {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .retro-detail-item {
+    font-size: 0.9rem;
+    
+    .detail-label {
+      flex: 0 0 100px;
+    }
+  }
+}

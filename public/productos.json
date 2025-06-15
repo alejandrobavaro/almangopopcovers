@@ -1,0 +1,210 @@
+[
+  {
+    "id": 1,
+    "nombre": "P-1-Remera Cyberpunk - Logo Almango",
+    "precio": 50000,
+    "imagenes": [
+      "/img/06-tienda/tienda1-a.png",
+      "/img/06-tienda/tienda1-b.png",
+      "/img/06-tienda/tienda1-c.png",
+      "/img/06-tienda/tienda1-d.png"
+    ],
+    "categoria": "camiseta",
+    "descripcion": "Remera unisex estilo retro-futurista con el logo de Almango Pop Covers en neón."
+  },
+  {
+    "id": 2,
+    "nombre": "P-2-Camiseta Glowbeat 80s",
+    "precio": 55890,
+    "imagenes": [
+      "/img/06-tienda/tienda2-a.png",
+      "/img/06-tienda/tienda2-b.png",
+      "/img/06-tienda/tienda2-c.png",
+      "/img/06-tienda/tienda2-d.png"
+    ],
+    "categoria": "camiseta",
+    "descripcion": "Camiseta estilo 80s con estampado brillante inspirado en sintetizadores y luces de discoteca."
+  },
+  {
+    "id": 3,
+    "nombre": "P-3-Buzo Neon Pulse Azul",
+    "precio": 38250,
+    "imagenes": [
+      "/img/06-tienda/tienda3-a.png",
+      "/img/06-tienda/tienda3-b.png",
+      "/img/06-tienda/tienda3-c.png",
+      "/img/06-tienda/tienda3-d.png"
+    ],
+    "categoria": "buzo",
+    "descripcion": "Buzo azul eléctrico con detalles reflectantes y parche cyberbeat."
+  },
+  {
+    "id": 4,
+    "nombre": "P-4-Conjunto Streetwave Futurista",
+    "precio": 67780,
+    "imagenes": [
+      "/img/06-tienda/tienda4-a.png",
+      "/img/06-tienda/tienda4-b.png",
+      "/img/06-tienda/tienda4-c.png",
+      "/img/06-tienda/tienda4-d.png"
+    ],
+    "categoria": "conjunto",
+    "descripcion": "Set urbano inspirado en la moda de los 90s, con guiños sci-fi y colores vibrantes."
+  },
+  {
+    "id": 5,
+    "nombre": "P-5-Gorra Electrónica Rebel",
+    "precio": 45210,
+    "imagenes": [
+      "/img/06-tienda/tienda5-a.png",
+      "/img/06-tienda/tienda5-b.png",
+      "/img/06-tienda/tienda5-c.png",
+      "/img/06-tienda/tienda5-d.png"
+    ],
+    "categoria": "gorro",
+    "descripcion": "Gorra con visor y detalles en vinilo, inspirada en los DJ de los 80s."
+  },
+  {
+    "id": 6,
+    "nombre": "P-6-Vestido Cyber Diva",
+    "precio": 81900,
+    "imagenes": [
+      "/img/06-tienda/tienda6-a.png",
+      "/img/06-tienda/tienda6-b.png",
+      "/img/06-tienda/tienda6-c.png",
+      "/img/06-tienda/tienda6-d.png"
+    ],
+    "categoria": "vestido",
+    "descripcion": "Vestido con brillo metálico y cortes geométricos, ideal para escenarios retrofuturistas."
+  },
+  {
+    "id": 7,
+    "nombre": "P-7-Campera Rock Synthwave",
+    "precio": 73560,
+    "imagenes": [
+      "/img/06-tienda/tienda7-a.png",
+      "/img/06-tienda/tienda7-b.png",
+      "/img/06-tienda/tienda7-c.png",
+      "/img/06-tienda/tienda7-d.png"
+    ],
+    "categoria": "chaqueta",
+    "descripcion": "Chaqueta de cuero sintético negra con detalles LED, un clásico cyberpunk."
+  },
+  {
+    "id": 8,
+    "nombre": "P-8-Pantalón Holográfico Groove",
+    "precio": 59780,
+    "imagenes": [
+      "/img/06-tienda/tienda8-a.png",
+      "/img/06-tienda/tienda8-b.png",
+      "/img/06-tienda/tienda8-c.png",
+      "/img/06-tienda/tienda8-d.png"
+    ],
+    "categoria": "pantalón",
+    "descripcion": "Pantalón efecto holográfico con líneas retro que brillan bajo luces UV."
+  },
+  {
+    "id": 9,
+    "nombre": "P-9-Camisa Lumínica FunkyWave",
+    "precio": 44370,
+    "imagenes": [
+      "/img/06-tienda/tienda9-a.png",
+      "/img/06-tienda/tienda9-b.png",
+      "/img/06-tienda/tienda9-c.png",
+      "/img/06-tienda/tienda9-d.png"
+    ],
+    "categoria": "camisa",
+    "descripcion": "Camisa con fibras luminiscentes y patrón visual psicodélico digital."
+  },
+  {
+    "id": 10,
+    "nombre": "P-10-Botas Galácticas - Platform Flash",
+    "precio": 68240,
+    "imagenes": [
+      "/img/06-tienda/tienda10-a.png",
+      "/img/06-tienda/tienda10-b.png",
+      "/img/06-tienda/tienda10-c.png",
+      "/img/06-tienda/tienda10-d.png"
+    ],
+    "categoria": "calzado",
+    "descripcion": "Botas con plataforma luminosa y texturas inspiradas en viajes espaciales."
+  },
+  {
+    "id": 11,
+    "nombre": "P-11-Anteojos Visor StarWave",
+    "precio": 88900,
+    "imagenes": [
+      "/img/06-tienda/tienda11-a.png",
+      "/img/06-tienda/tienda11-b.png",
+      "/img/06-tienda/tienda11-c.png",
+      "/img/06-tienda/tienda11-d.png"
+    ],
+    "categoria": "anteojos",
+    "descripcion": "Anteojos de sol con visor envolvente estilo Daft Punk, reflectivo y retro."
+  },
+  {
+    "id": 12,
+    "nombre": "P-12-Corbata Digital Soundline",
+    "precio": 54900,
+    "imagenes": [
+      "/img/06-tienda/tienda12-a.png",
+      "/img/06-tienda/tienda12-b.png",
+      "/img/06-tienda/tienda12-c.png",
+      "/img/06-tienda/tienda12-d.png"
+    ],
+    "categoria": "corbata",
+    "descripcion": "Corbata interactiva con motivos de ondas sonoras y detalles LED."
+  },
+  {
+    "id": 13,
+    "nombre": "P-13-Camisa Fluor Pop Vibes",
+    "precio": 73750,
+    "imagenes": [
+      "/img/06-tienda/tienda13-a.png",
+      "/img/06-tienda/tienda13-b.png",
+      "/img/06-tienda/tienda13-c.png",
+      "/img/06-tienda/tienda13-d.png"
+    ],
+    "categoria": "camisa",
+    "descripcion": "Camisa en colores flúor estilo dancefloor 90s con textura sintética."
+  },
+  {
+    "id": 14,
+    "nombre": "P-14-Gorra Flashbeat UV",
+    "precio": 61900,
+    "imagenes": [
+      "/img/06-tienda/tienda14-a.png",
+      "/img/06-tienda/tienda14-b.png",
+      "/img/06-tienda/tienda14-c.png",
+      "/img/06-tienda/tienda14-d.png"
+    ],
+    "categoria": "gorro",
+    "descripcion": "Gorra con impresión UV reactiva, perfecta para festivales futuristas."
+  },
+  {
+    "id": 15,
+    "nombre": "P-15-Bufanda Pixelada Retrobit",
+    "precio": 41250,
+    "imagenes": [
+      "/img/06-tienda/tienda15-a.png",
+      "/img/06-tienda/tienda15-b.png",
+      "/img/06-tienda/tienda15-c.png",
+      "/img/06-tienda/tienda15-d.png"
+    ],
+    "categoria": "bufanda",
+    "descripcion": "Bufanda con patrón de píxeles vintage y tejidos inteligentes térmicos."
+  },
+  {
+    "id": 16,
+    "nombre": "P-16-Visera Prismática Chromapop",
+    "precio": 28900,
+    "imagenes": [
+      "/img/06-tienda/tienda16-a.png",
+      "/img/06-tienda/tienda16-b.png",
+      "/img/06-tienda/tienda16-c.png",
+      "/img/06-tienda/tienda16-d.png"
+    ],
+    "categoria": "accesorios",
+    "descripcion": "Visera con filtro cromado y estilo 80s pop en colores cambiantes."
+  }
+]
