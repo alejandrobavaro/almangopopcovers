@@ -9,7 +9,6 @@ import PublicidadDebajo from './componentes/MainPublicidadSlider';
 import Footer from './componentes/Footer';
 import Tienda from './componentes/Tienda';
 import CarritoCompleto from './componentes/TiendaCarritoCompra';
-import { OfertasProvider } from './componentes/TiendaOfertasContext';
 import { AuthProvider } from './componentes/SesionAuthContext';
 import Login from './componentes/SesionLogin';
 import Register from './componentes/SesionRegistrate';
@@ -17,6 +16,7 @@ import Logout from './componentes/SesionLogout';
 import Musica from './componentes/Musica';
 import MainWhatsappIcon from './componentes/MainWhatsappIcon';
 import './assets/scss/estilo.scss';
+import "../src/assets/scss/_01-General/_App.scss";
 
 const loadAudio = async (path) => {
   try {
@@ -74,18 +74,28 @@ function App() {
       title: 'TRANSACCIÓN ENCRIPTADA',
       text: 'CONFIRMAR PAGO CON CRIPTOMONEDA?',
       icon: 'question',
-      background: '#0a0a0a',
+      background: 'linear-gradient(180deg, #0000144f 0%, #010d3554 100%)',
       color: '#00f0ff',
       showCancelButton: true,
       confirmButtonText: 'FIRMAR CONTRATO',
       cancelButtonText: 'CANCELAR',
       customClass: {
-        popup: 'neo-popup',
-        confirmButton: 'neo-button neo-button-primary',
-        cancelButton: 'neo-button neo-button-secondary'
+        popup: 'cyber-popup',
+        confirmButton: 'cyber-button cyber-button-primary',
+        cancelButton: 'cyber-button cyber-button-secondary'
       },
       buttonsStyling: false,
-      iconColor: '#ff00f0'
+      iconColor: '#ff00f0',
+      backdrop: `
+        rgba(0,0,0,0.8)
+        url("/img/cyber-grid-animated.gif")
+        center top
+        no-repeat
+      `,
+      width: '90%',
+      padding: '2rem',
+      borderRadius: '20px',
+      border: '2px solid #00f0ff'
     }).then((result) => {
       if (result.isConfirmed) {
         window.open('https://www.paypal.com/paypalme/alegondramusic?country.x=AR&locale.x=es_XC', '_blank');
@@ -96,55 +106,50 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <OfertasProvider>
-          <div className="neo-container">
-            <div className="neo-scanline"></div>
-            <div className="neo-grid-pattern"></div>
-            
+        <div className="cyber-container">
             <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-            <div className="neo-divider"></div>
-            
-            <Routes>
-              <Route path="/" element={<MainContent />} />
-              <Route path="/contacto" element={<><Contacto /><ContactoFormularioSlider /></>} />
-              <Route path="/tienda" element={
-                <Tienda 
-                  setCart={setProductCart} 
-                  cart={productCart} 
-                  addToCart={addProductToCart} 
-                  removeFromCart={removeProductFromCart} 
-                  searchQuery={searchQuery} 
-                  setSearchQuery={setSearchQuery} 
-                />} 
-              />
-              <Route path="/carrito" element={
-                <CarritoCompleto 
-                  cart={productCart} 
-                  removeFromCart={removeProductFromCart} 
-                  handlePagar={handlePagar} 
-                />} 
-              />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/musica" element={
-                <Musica 
-                  setCart={setMusicCart} 
-                  cart={musicCart} 
-                  addToCart={addMusicToCart} 
-                  removeFromCart={removeMusicFromCart} 
-                  searchQuery={searchQuery} 
-                  setSearchQuery={setSearchQuery} 
-                />} 
-              />
-            </Routes>
-            
-            <div className="neo-divider"></div>
-            <PublicidadDebajo />
-            <Footer />
-            <MainWhatsappIcon />
-          </div>
-        </OfertasProvider>
+          <div className="cyber-divider"></div>
+          
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/contacto" element={<><Contacto /><ContactoFormularioSlider /></>} />
+            <Route path="/tienda" element={
+              <Tienda 
+                setCart={setProductCart} 
+                cart={productCart} 
+                addToCart={addProductToCart} 
+                removeFromCart={removeProductFromCart} 
+                searchQuery={searchQuery} 
+                setSearchQuery={setSearchQuery} 
+              />} 
+            />
+            <Route path="/carrito" element={
+              <CarritoCompleto 
+                cart={productCart} 
+                removeFromCart={removeProductFromCart} 
+                handlePagar={handlePagar} 
+              />} 
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/logout" element={<Logout />} />
+            <Route path="/musica" element={
+              <Musica 
+                setCart={setMusicCart} 
+                cart={musicCart} 
+                addToCart={addMusicToCart} 
+                removeFromCart={removeMusicFromCart} 
+                searchQuery={searchQuery} 
+                setSearchQuery={setSearchQuery} 
+              />} 
+            />
+          </Routes>
+          
+          <div className="cyber-divider"></div>
+          <PublicidadDebajo />
+          <Footer />
+          <MainWhatsappIcon />
+        </div>
       </AuthProvider>
     </Router>
   );

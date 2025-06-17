@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "./SesionAuthContext";
-import "../assets/scss/_03-Componentes/_Header.scss";
+import { FaSearch, FaUser, FaSignOutAlt, FaMusic, FaStore, FaHome, FaEnvelope } from "react-icons/fa";
 
 const Header = ({ searchQuery, setSearchQuery }) => {
   const location = useLocation();
   const { state, dispatch } = useAuth();
   const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [menuActive, setMenuActive] = useState(false);
 
   const shouldShowSearchBar = 
     location.pathname === "/tienda" || location.pathname === "/musica";
@@ -16,72 +17,103 @@ const Header = ({ searchQuery, setSearchQuery }) => {
     dispatch({ type: "LOGOUT" });
   };
 
-  return (
-    <header className="cyber-header-single-line">
-      <div className="cyber-header-container">
-        {/* Logo compacto */}
-        <Link to="/" className="cyber-logo-link">
-          <img
-            src="/img/hologram-icon.webp"
-            alt="DSV"
-            className="cyber-logo-icon"
-          />
-          <span className="cyber-logo-text">DSV</span>
-        </Link>
+  const playHoverSound = () => {
+    new Audio('/audio/button-hover.mp3').play().catch(console.error);
+  };
 
-        {/* Búsqueda integrada */}
+  return (
+    <header className="header">
+      <div className="header__container">
+        {/* Búsqueda para desktop */}
         {shouldShowSearchBar && (
-          <div className={`cyber-search-integrated ${showMobileSearch ? "mobile-visible" : ""}`}>
-            <div className="cyber-search-terminal">
-              <span className="cyber-prompt">></span>
+          <div className={`header__search ${showMobileSearch ? "header__search--mobile-visible" : ""}`}>
+            <div className="search__container">
+              <span className="search__prompt">C:\ALMANGO\{location.pathname.replace('/', '').toUpperCase()}\</span>
               <input
                 type="text"
-                placeholder={location.pathname === "/tienda" ? "SEARCH_ALBUMS" : "SEARCH_TRACKS"}
-                className="cyber-search-input"
+                placeholder={location.pathname === "/tienda" ? "SEARCH_PRODUCTS" : "SEARCH_TRACKS"}
+                className="search__input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
+              <div className="search__cursor"></div>
             </div>
           </div>
         )}
 
-        {/* Menú compacto */}
-        <nav className="cyber-nav-compact">
-          <Link className="cyber-nav-item" to="/">
-            <span className="cyber-nav-code">HOME</span>
+        {/* Logo */}
+        <Link to="/" className="header__logo" onMouseEnter={playHoverSound}>
+          <img
+            src="/img/04-img-banners/banner4.png"
+            alt="Almango Pop Covers"
+            className="logo__image"
+          />
+        </Link>
+
+        {/* Menú principal */}
+        <nav className={`header__nav ${menuActive ? "header__nav--active" : ""}`}>
+          <Link to="/" className="nav__link" onMouseEnter={playHoverSound}>
+            <FaHome className="nav__icon" />
+            <span className="nav__text">INICIO</span>
           </Link>
-          <Link className="cyber-nav-item" to="/musica">
-            <span className="cyber-nav-code">MUSIC</span>
+          
+          <Link to="/musica" className="nav__link" onMouseEnter={playHoverSound}>
+            <FaMusic className="nav__icon" />
+            <span className="nav__text">MÚSICA</span>
           </Link>
-          <Link className="cyber-nav-item" to="/contacto">
-            <span className="cyber-nav-code">CONTACT</span>
+          
+          <Link to="/tienda" className="nav__link" onMouseEnter={playHoverSound}>
+            <FaStore className="nav__icon" />
+            <span className="nav__text">TIENDA</span>
           </Link>
-          <Link className="cyber-nav-item" to="/tienda">
-            <span className="cyber-nav-code">STORE</span>
+          
+          <Link to="/contacto" className="nav__link" onMouseEnter={playHoverSound}>
+            <FaEnvelope className="nav__icon" />
+            <span className="nav__text">CONTACTO</span>
           </Link>
         </nav>
 
-        {/* Auth + Menú móvil */}
-        <div className="cyber-auth-compact">
+        {/* Controles de usuario */}
+        <div className="header__controls">
           {state.isAuthenticated ? (
-            <button className="cyber-auth-btn" onClick={handleAuthAction}>
-              <span className="cyber-auth-code">LOGOUT</span>
+            <button 
+              className="controls__button"
+              onClick={handleAuthAction}
+              onMouseEnter={playHoverSound}
+            >
+              <FaSignOutAlt className="button__icon" />
+              <span className="button__text">LOGOUT</span>
             </button>
           ) : (
             <>
-              <Link className="cyber-auth-btn" to="/login">
-                <span className="cyber-auth-code">LOGIN</span>
+              <Link to="/login" className="controls__button" onMouseEnter={playHoverSound}>
+                <FaUser className="button__icon" />
+                <span className="button__text">LOGIN</span>
               </Link>
-              <Link className="cyber-auth-btn" to="/register">
-                <span className="cyber-auth-code">REG</span>
+              <Link to="/register" className="controls__button controls__button--register" onMouseEnter={playHoverSound}>
+                <span className="button__text">REGISTER</span>
               </Link>
             </>
           )}
+          
+          {shouldShowSearchBar && (
+            <button 
+              className="controls__search-toggle"
+              onClick={() => setShowMobileSearch(!showMobileSearch)}
+              onMouseEnter={playHoverSound}
+            >
+              <FaSearch className="search-toggle__icon" />
+            </button>
+          )}
+          
           <button 
-            className="cyber-mobile-search-toggle"
-            onClick={() => setShowMobileSearch(!showMobileSearch)}
+            className="controls__menu-toggle"
+            onClick={() => setMenuActive(!menuActive)}
+            onMouseEnter={playHoverSound}
           >
-            <span className="cyber-search-icon">⌕</span>
+            <div className={`menu-toggle__bar ${menuActive ? "menu-toggle__bar--active" : ""}`}></div>
+            <div className={`menu-toggle__bar ${menuActive ? "menu-toggle__bar--active" : ""}`}></div>
+            <div className={`menu-toggle__bar ${menuActive ? "menu-toggle__bar--active" : ""}`}></div>
           </button>
         </div>
       </div>

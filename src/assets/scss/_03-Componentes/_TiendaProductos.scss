@@ -1,233 +1,257 @@
-// Variables de estilo retro
-$purple-dark: #2a1e5c;
-$purple-light: #4a2f9e;
-$gold: #f4e87c;
-$pink-neon: #ff6b6b;
-$blue-night: #1a0933;
-$red-intense: #e91e63;
-$turquoise: #b8d8d8;
-
-// Estilos de la grilla de productos retro
-.retro-products-grid {
+/* Estilos base - Mobile First */
+.cyber-products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
-  padding: 20px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="none" stroke="%23f4e87c" stroke-width="1" opacity="0.1"/></svg>');
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  max-width: 412px;
+  margin: 0 auto;
   position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
-// Efecto VHS de fondo
-.retro-products-grid::before {
+/* Efecto de scanlines para toda la grilla */
+.cyber-products-grid::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 4px, 4px 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 240, 255, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 100% 4px;
   pointer-events: none;
-  z-index: -1;
-  opacity: 0.3;
+  z-index: 1;
 }
 
-.retro-product-card {
+.cyber-product-card {
   position: relative;
-  background: linear-gradient(145deg, $purple-dark, $blue-night);
-  border: 3px solid $gold;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
+  background-color: rgba(26, 26, 26, 0.8);
+  border: 1px solid #00f0ff;
+  padding: 1.2rem;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
   transition: all 0.3s ease;
-  box-shadow: 
-    5px 5px 0 $pink-neon,
-    0 0 20px rgba($pink-neon, 0.3);
   overflow: hidden;
-  font-family: 'Rubik Mono One', sans-serif;
-  z-index: 1;
+  z-index: 2;
 
   &:hover {
-    transform: translateY(-5px) rotate(-1deg);
-    box-shadow: 
-      8px 8px 0 $pink-neon,
-      0 0 30px rgba($pink-neon, 0.5);
+    border-color: #ff00f0;
+    box-shadow: 0 0 25px rgba(255, 0, 240, 0.3);
+    transform: translateY(-3px);
   }
 }
 
-.retro-offer-tag {
+/* Etiqueta de oferta estilo terminal */
+.cyber-offer-tag {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: linear-gradient(145deg, $red-intense, $pink-neon);
-  color: $blue-night;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: linear-gradient(90deg, #ff00f0, #ff4500);
+  padding: 0.3rem 0.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
-  box-shadow: 2px 2px 0 $gold;
-  
-  .offer-text {
+  z-index: 3;
+  border-left: 2px solid #00f0ff;
+
+  .cyber-offer-code {
+    font-family: 'Fira Code', monospace;
     font-size: 0.7rem;
+    color: #0a0a0a;
+    font-weight: bold;
   }
-  
-  .offer-percent {
-    font-size: 1rem;
+
+  .cyber-offer-percent {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: #0a0a0a;
+    font-weight: bold;
   }
 }
 
-.vinyl-product-frame {
+/* Contenedor de imagen con efectos cyberpunk */
+.cyber-product-image-container {
   position: relative;
-  width: 150px;
+  width: 100%;
   height: 150px;
-  margin: 0 auto 15px;
-  border-radius: 50%;
+  margin-bottom: 1rem;
   overflow: hidden;
-  border: 5px solid $gold;
-  box-shadow: 
-    inset 0 0 10px rgba(0, 0, 0, 0.5),
-    0 0 20px $pink-neon;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
+  border: 1px solid #00f0ff;
 }
 
-.retro-product-image {
+.cyber-product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: relative;
+  z-index: 1;
 }
 
-.vinyl-center {
+.cyber-image-glitch {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  background: $gold;
-  border-radius: 50%;
-  border: 2px solid $purple-dark;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 240, 255, 0.1) 0%,
+    rgba(255, 0, 240, 0.1) 50%,
+    rgba(0, 240, 255, 0.1) 100%
+  );
   z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.retro-product-title {
+.cyber-product-image-container:hover .cyber-image-glitch {
+  opacity: 0.7;
+  animation: glitchEffect 0.5s infinite alternate;
+}
+
+.cyber-image-scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1px,
+    rgba(0, 240, 255, 0.05) 2px,
+    transparent 3px
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Título del producto */
+.cyber-product-title {
+  font-family: 'Rajdhani', sans-serif;
+  color: #e0e0e0;
   font-size: 1rem;
-  color: $gold;
-  margin: 10px 0;
-  text-shadow: 1px 1px 0 $pink-neon;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
   letter-spacing: 1px;
-  min-height: 40px;
   display: flex;
   align-items: center;
-  justify-content: center;
-}
+  min-height: 40px;
 
-.retro-product-price {
-  font-size: 1.2rem;
-  color: $gold;
-  margin: 15px 0;
-  position: relative;
-  display: inline-block;
-  text-shadow: 0 0 5px $pink-neon;
-  
-  .original-price {
-    position: absolute;
-    top: -15px;
-    right: -40px;
-    font-size: 0.8rem;
-    color: $turquoise;
-    text-decoration: line-through;
-    text-shadow: none;
+  .cyber-product-code {
+    color: #ff00f0;
+    margin-right: 0.5rem;
+    font-family: 'Fira Code', monospace;
   }
 }
 
-.retro-add-to-cart {
-  background: linear-gradient(145deg, #333, #111);
-  color: $gold;
-  border: 3px solid $gold;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 0.8rem;
-  font-weight: bold;
+/* Precio con estilo terminal */
+.cyber-product-price {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+
+  .cyber-price-value {
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+  }
+
+  .cyber-original-price {
+    position: absolute;
+    top: -1rem;
+    right: -2.5rem;
+    font-size: 0.8rem;
+    color: #ff00f0;
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+}
+
+/* Botón de añadir al carrito */
+.cyber-add-to-cart {
+  position: relative;
+  background: transparent;
+  color: #e0e0e0;
+  border: 1px solid #00f0ff;
+  padding: 0.6rem 1rem;
+  font-family: 'Fira Code', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  
-  .button-text {
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  .cyber-btn-text {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    font-size: 0.8rem;
   }
-  
-  .button-light {
+
+  .cyber-btn-glow {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 8px;
-    height: 8px;
-    background: $pink-neon;
-    border-radius: 50%;
-    box-shadow: 0 0 5px $pink-neon;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 240, 255, 0.3), rgba(255, 0, 240, 0.3));
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
-  
+
   &:hover {
-    background: linear-gradient(145deg, $pink-neon, $red-intense);
-    color: $blue-night;
-    transform: translateY(-3px);
+    color: #0a0a0a;
+    border-color: #ff00f0;
     
-    .button-light {
-      animation: blink 0.5s infinite alternate;
+    .cyber-btn-glow {
+      opacity: 1;
     }
   }
 }
 
-// Animaciones
-@keyframes blink {
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
+/* Animaciones */
+@keyframes glitchEffect {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
 }
 
-// Responsive
-@media (max-width: 768px) {
-  .retro-products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+/* Breakpoints */
+@media (min-width: 768px) {
+  .cyber-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    max-width: 700px;
+    gap: 2rem;
+    padding: 1.5rem;
   }
-  
-  .vinyl-product-frame {
-    width: 120px;
-    height: 120px;
+
+  .cyber-product-image-container {
+    height: 180px;
   }
-  
-  .retro-product-title {
-    font-size: 0.9rem;
+}
+
+@media (min-width: 1024px) {
+  .cyber-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 900px;
+    padding: 2rem;
   }
-  
-  .retro-product-price {
-    font-size: 1rem;
-  }
-  
-  .retro-add-to-cart {
-    font-size: 0.7rem;
-    padding: 8px;
+
+  .cyber-product-image-container {
+    height: 200px;
   }
 }

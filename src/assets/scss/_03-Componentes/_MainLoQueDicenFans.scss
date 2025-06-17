@@ -1,0 +1,136 @@
+/* -------------------------------------------- */
+/* TESTIMONIALS - MEJORADO */
+/* -------------------------------------------- */
+
+.testimonials {
+  padding: 2rem 1rem;
+  max-width: 412px;
+  margin: 0 auto;
+
+  &__container {
+    background: rgba(10, 10, 40, 0.8);
+    border-radius: 20px;
+    border: 2px solid #00f0ff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: #00f0ff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  &__divider {
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(90deg, #00f0ff, #ff00f0);
+    margin: 0 auto 1rem;
+  }
+
+  &__message {
+    color: #ff00f0;
+    font-size: 1.1rem;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+}
+
+.testimonial {
+  &__card {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 240, 255, 0.2);
+      border-color: rgba(255, 0, 240, 0.5);
+    }
+  }
+
+  &__quote {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: rgba(224, 224, 224, 0.9);
+    position: relative;
+    
+    &::before, &::after {
+      color: #ff00f0;
+      font-size: 2rem;
+      line-height: 0;
+      position: absolute;
+    }
+    
+    &::before {
+      content: '"';
+      top: 0;
+      left: -15px;
+    }
+    
+    &::after {
+      content: '"';
+      bottom: -20px;
+      right: -15px;
+    }
+  }
+
+  &__author {
+    font-weight: bold;
+    color: #00f0ff;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  }
+
+  &__role {
+    font-size: 0.8rem;
+    color: #ff00f0;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+}
+
+/* -------------------------------------------- */
+/* RESPONSIVE */
+/* -------------------------------------------- */
+
+@media (min-width: 768px) {
+  .testimonials {
+    max-width: 720px;
+
+    &__container {
+      padding: 2rem;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials {
+    max-width: 960px;
+
+    &__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

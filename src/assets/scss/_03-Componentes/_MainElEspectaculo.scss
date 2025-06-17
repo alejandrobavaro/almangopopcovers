@@ -1,0 +1,127 @@
+/* -------------------------------------------- */
+/* SHOW - MEJORADO */
+/* -------------------------------------------- */
+
+.show {
+  padding: 2rem 1rem;
+  max-width: 412px;
+  margin: 0 auto;
+
+  &__container {
+    background: rgba(10, 10, 40, 0.8);
+    border-radius: 20px;
+    border: 2px solid #00f0ff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    overflow: hidden;
+    padding: 1.5rem;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: #00f0ff;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  &__divider {
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(90deg, #00f0ff, #ff00f0);
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__text {
+    order: 2;
+  }
+
+  &__paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+  }
+
+  &__song {
+    color: #ff00f0;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 0 0 8px rgba(255, 0, 240, 0.3);
+  }
+
+  &__image {
+    order: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid rgba(0, 240, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    transition: all 0.5s ease;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+}
+
+/* -------------------------------------------- */
+/* RESPONSIVE */
+/* -------------------------------------------- */
+
+@media (min-width: 768px) {
+  .show {
+    max-width: 720px;
+
+    &__container {
+      padding: 2rem;
+    }
+
+    &__content {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__text {
+      flex: 1;
+      order: 1;
+    }
+
+    &__image {
+      flex: 1;
+      order: 2;
+    }
+
+    &__paragraph {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .show {
+    max-width: 960px;
+
+    &__image:hover {
+      border-color: rgba(255, 0, 240, 0.5);
+      
+      .show__img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

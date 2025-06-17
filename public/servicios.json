@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "nombre": "Show estándar",
+      "descripcion": "2 horas de música con 4 músicos en escena",
+      "precio": 150000
+    },
+    {
+      "id": 2,
+      "nombre": "Show premium",
+      "descripcion": "3 horas con 6 músicos, coreógrafos y producción completa",
+      "precio": 250000
+    },
+    {
+      "id": 3,
+      "nombre": "Eventos privados",
+      "descripcion": "Show personalizado con repertorio a elección",
+      "precio": 180000
+    }
+  ]

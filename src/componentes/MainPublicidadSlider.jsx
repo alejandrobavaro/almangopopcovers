@@ -1,32 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { useOfertas } from "./TiendaOfertasContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../assets/scss/_03-Componentes/_MainPublicidadSlider.scss';
 
 const MainPublicidadSlider = () => {
-  const { ofertas } = useOfertas();
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProductos = async () => {
       try {
         const response = await fetch("/productos.json");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const productos = await response.json();
-        const productosOfertas = productos.filter((producto) =>
-          ofertas.includes(producto.id)
-        );
-        setProductos(productosOfertas);
+        
+        // Mostramos solo productos destacados
+        const productosDestacados = productos.filter(producto => producto.destacado);
+        
+        setProductos(productosDestacados);
       } catch (error) {
         console.error("Error al cargar los productos:", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProductos();
-  }, [ofertas]);
+  }, []);
 
-  // Configuración del slider futurista
+  // Configuración del slider responsive
   const settings = {
     dots: false,
     infinite: true,
@@ -39,42 +46,85 @@ const MainPublicidadSlider = () => {
     nextArrow: <CyberNextArrow />,
     prevArrow: <CyberPrevArrow />,
     fade: true,
-    cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)'
+    cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true
+        }
+      }
+    ]
   };
 
-  // Componente personalizado para flecha siguiente
   function CyberNextArrow(props) {
     const { onClick } = props;
     return (
-      <div className="cyber-arrow cyber-next" onClick={onClick}>
+      <div className="cyber-arrow cyber-next" onClick={onClick} aria-label="Next slide">
         <div className="cyber-arrow-core"></div>
         <span>⏵</span>
       </div>
     );
   }
 
-  // Componente personalizado para flecha anterior
   function CyberPrevArrow(props) {
     const { onClick } = props;
     return (
-      <div className="cyber-arrow cyber-prev" onClick={onClick}>
+      <div className="cyber-arrow cyber-prev" onClick={onClick} aria-label="Previous slide">
         <div className="cyber-arrow-core"></div>
         <span>⏴</span>
       </div>
     );
   }
 
+  const handleImageError = (e) => {
+    e.target.src = '/img/placeholder-product.jpg';
+    e.target.alt = 'Imagen no disponible';
+  };
+
+  if (loading) {
+    return (
+      <div className="cyber-publicidad-container">
+        <div className="cyber-loading">
+          <div className="cyber-spinner"></div>
+          <p>CARGANDO PRODUCTOS...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="cyber-publicidad-container">
+        <div className="cyber-error">
+          <p>ERROR AL CARGAR LOS PRODUCTOS: {error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (productos.length === 0) {
+    return (
+      <div className="cyber-publicidad-container">
+        <div className="cyber-empty">
+          <p>EXPLORA NUESTROS PRODUCTOS PRÓXIMAMENTE</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="cyber-publicidad-container">
-      {/* Barra de escaneo superior */}
       <div className="cyber-scan-bar"></div>
       
       <div className="cyber-slider-wrapper">
         <h2 className="cyber-section-title">
-          <span className="cyber-title-badge">RETRO_OFFERS.EXE</span>
+          <span className="cyber-title-badge">
+            PRODUCTOS DESTACADOS
+          </span>
         </h2>
         
-        {/* Slider principal */}
         <div className="cyber-main-slider">
           <Slider {...settings}>
             {productos.map((producto) => (
@@ -85,16 +135,16 @@ const MainPublicidadSlider = () => {
                       src={producto.imagenes[0]}
                       alt={producto.nombre}
                       className="cyber-slide-image"
+                      onError={handleImageError}
+                      loading="lazy"
                     />
                     <div className="cyber-slide-glitch"></div>
                   </div>
                   <div className="cyber-price-tag">
                     <span className="cyber-price-currency">$</span>
-                    <span className="cyber-price-value">{producto.precio}</span>
-                  </div>
-                  <div className="cyber-sticker">
-                    <span className="cyber-sticker-text">OFFER</span>
-                    <span className="cyber-sticker-pulse"></span>
+                    <span className="cyber-price-value">
+                      {new Intl.NumberFormat('es-AR').format(producto.precio)}
+                    </span>
                   </div>
                   <div className="cyber-product-info">
                     <h3 className="cyber-product-name">{producto.nombre}</h3>
@@ -106,8 +156,7 @@ const MainPublicidadSlider = () => {
           </Slider>
         </div>
 
-        {/* Miniaturas estilo terminal */}
-        <h3 className="cyber-thumbnails-title">>> FEATURED_PRODUCTS</h3>
+        <h3 className="cyber-thumbnails-title">MÁS PRODUCTOS</h3>
         <div className="cyber-thumbnails-grid">
           {productos.map((producto) => (
             <div key={producto.id} className="cyber-thumbnail">
@@ -116,6 +165,8 @@ const MainPublicidadSlider = () => {
                   src={producto.imagenes[0]}
                   alt={producto.nombre}
                   className="cyber-thumbnail-image"
+                  onError={handleImageError}
+                  loading="lazy"
                 />
               </div>
               <div className="cyber-thumbnail-id">[{producto.id}]</div>
@@ -124,7 +175,6 @@ const MainPublicidadSlider = () => {
         </div>
       </div>
       
-      {/* Barra de escaneo inferior */}
       <div className="cyber-scan-bar"></div>
     </div>
   );

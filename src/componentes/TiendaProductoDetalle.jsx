@@ -5,47 +5,52 @@ const TiendaProductoDetalle = ({ producto }) => {
   if (!producto) return null;
 
   return (
-    <div className="retro-product-detail">
-      {/* Cinta de cassette decorativa */}
-      <div className="cassette-tape"></div>
+    <div className="cyber-product-detail">
+      {/* Barra de escaneo superior */}
+      <div className="cyber-scan-bar"></div>
       
-      <h4 className="retro-detail-title">
-        <span className="vinyl-icon">◉</span> DETALLES DEL PRODUCTO <span className="vinyl-icon">◉</span>
-      </h4>
+      <h3 className="cyber-detail-title">
+        <span className="cyber-prompt">»</span> DETALLES DEL PRODUCTO <span className="cyber-prompt">«</span>
+      </h3>
       
-      <div className="retro-detail-content">
-        {/* Imagen estilo vinilo */}
-        <div className="detail-vinyl-frame">
+      <div className="cyber-detail-content">
+        {/* Imagen con efecto holográfico */}
+        <div className="cyber-image-container">
           <img 
-            src={producto.imagenes[0] || '/img/default-vinyl.png'} 
+            src={producto.imagenes[0] || '/img/default-hologram.webp'} 
             alt={producto.nombre} 
-            className="detail-product-image"
+            className="cyber-product-image"
+            loading="lazy"
           />
-          <div className="vinyl-center"></div>
+          <div className="cyber-image-glitch"></div>
+          <div className="cyber-image-glow"></div>
         </div>
         
-        <div className="retro-detail-info">
-          <p className="retro-detail-item">
-            <span className="detail-label">NOMBRE:</span> 
-            <span className="detail-value">{producto.nombre}</span>
-          </p>
+        <div className="cyber-detail-info">
+          <div className="cyber-detail-item">
+            <span className="cyber-detail-label">» NOMBRE:</span> 
+            <span className="cyber-detail-value">{producto.nombre}</span>
+          </div>
           
-          <p className="retro-detail-item">
-            <span className="detail-label">PRECIO:</span> 
-            <span className="detail-value neon">${producto.precio.toFixed(2)}</span>
-          </p>
+          <div className="cyber-detail-item">
+            <span className="cyber-detail-label">» PRECIO:</span> 
+            <span className="cyber-detail-value cyber-price">${producto.precio.toFixed(2)}</span>
+          </div>
           
-          <p className="retro-detail-item">
-            <span className="detail-label">CATEGORÍA:</span> 
-            <span className="detail-value">{producto.categoria}</span>
-          </p>
+          <div className="cyber-detail-item">
+            <span className="cyber-detail-label">» CATEGORÍA:</span> 
+            <span className="cyber-detail-value">{producto.categoria}</span>
+          </div>
           
-          <p className="retro-detail-item">
-            <span className="detail-label">DESCRIPCIÓN:</span> 
-            <span className="detail-value description">{producto.descripcion}</span>
-          </p>
+          <div className="cyber-detail-item">
+            <span className="cyber-detail-label">» DESCRIPCIÓN:</span> 
+            <span className="cyber-detail-value cyber-description">{producto.descripcion}</span>
+          </div>
         </div>
       </div>
+
+      {/* Barra de escaneo inferior */}
+      <div className="cyber-scan-bar"></div>
     </div>
   );
 };

@@ -1,0 +1,168 @@
+/* -------------------------------------------- */
+/* CONTACTO - CYBERPUNK RETROFUTURISTA */
+/* -------------------------------------------- */
+
+.cyber-contact-section {
+    padding: 6rem 2rem;
+    background: rgba(10, 10, 20, 0.7);
+    
+    @media (max-width: 768px) {
+      padding: 4rem 1rem;
+    }
+  }
+  
+  .cyber-contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  
+  .cyber-contact-info {
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00f0ff;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(224, 224, 224, 0.8);
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .cyber-contact-details {
+    .cyber-contact-item {
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .cyber-contact-label {
+      width: 100px;
+      color: #ff00f0;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 0.1rem;
+      
+      @media (max-width: 480px) {
+        width: 100%;
+        margin-bottom: 0.3rem;
+      }
+    }
+    
+    .cyber-contact-value {
+      flex: 1;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+  }
+  
+  .cyber-contact-form {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00f0ff;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      text-align: center;
+      
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+  }
+  
+  .cyber-form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      color: #ff00f0;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: rgba(10, 10, 20, 0.7);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 4px;
+      color: #e0e0e0;
+      font-family: 'Rajdhani', sans-serif;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: #ff00f0;
+        box-shadow: 0 0 10px rgba(255, 0, 240, 0.3);
+      }
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+  }
+  
+  .cyber-form-button {
+    position: relative;
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    background: transparent;
+    color: #e0e0e0;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    
+    &:hover {
+      color: #0a0a0a;
+      
+      .cyber-button-hover {
+        transform: translateY(0);
+      }
+    }
+  }

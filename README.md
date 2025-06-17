@@ -54,14 +54,14 @@ Puedes acceder a la aplicación en [https://puchulitamusicainfantil.netlify.app/
 #### Capturas de Pantalla
 Aquí tienes capturas de pantalla y ejemplos de uso de la aplicación.
 
-![Documentación 1](public/img/07-documentacion/documentacion1.png)
-![Documentación 2](public/img/07-documentacion/documentacion2.png)
-![Documentación 3](public/img/07-documentacion/documentacion3.png)
-![Documentación 4](public/img/07-documentacion/documentacion4.png)
-![Documentación 5](public/img/07-documentacion/documentacion5.png)
-![Documentación 6](public/img/07-documentacion/documentacion6.png)
-![Documentación 7](public/img/07-documentacion/documentacion7.png)
-![Documentación 8](public/img/07-documentacion/documentacion8.png)
+![Documentación 1](/img/07-documentacion/documentacion1.png)
+![Documentación 2](/img/07-documentacion/documentacion2.png)
+![Documentación 3](/img/07-documentacion/documentacion3.png)
+![Documentación 4](/img/07-documentacion/documentacion4.png)
+![Documentación 5](/img/07-documentacion/documentacion5.png)
+![Documentación 6](/img/07-documentacion/documentacion6.png)
+![Documentación 7](/img/07-documentacion/documentacion7.png)
+![Documentación 8](/img/07-documentacion/documentacion8.png)
 
 ## Archivos SASS
 Los siguientes archivos SASS se utilizan en el proyecto para el diseño y la estructura:
@@ -113,14 +113,14 @@ Los siguientes componentes JSX se utilizan en el proyecto para la funcionalidad 
 - `main.jsx`
 
 ## Imágenes
-![Documentación 1](public/img/07-documentacion/documentacion9.png)
-![Documentación 2](public/img/07-documentacion/documentacion10.png)
-![Documentación 3](public/img/07-documentacion/documentacion11.png)
-![Documentación 4](public/img/07-documentacion/documentacion12.png)
-![Documentación 5](public/img/07-documentacion/documentacion13.png)
-![Documentación 6](public/img/07-documentacion/documentacion14.png)
-![Documentación 7](public/img/07-documentacion/documentacion15.png)
-![Documentación 8](public/img/07-documentacion/documentacion16.png)
+![Documentación 1](/img/07-documentacion/documentacion9.png)
+![Documentación 2](/img/07-documentacion/documentacion10.png)
+![Documentación 3](/img/07-documentacion/documentacion11.png)
+![Documentación 4](/img/07-documentacion/documentacion12.png)
+![Documentación 5](/img/07-documentacion/documentacion13.png)
+![Documentación 6](/img/07-documentacion/documentacion14.png)
+![Documentación 7](/img/07-documentacion/documentacion15.png)
+![Documentación 8](/img/07-documentacion/documentacion16.png)
 
 ## SEO
 - **Descripción**: Página de la Tienda Musical Infantil Puchulita.

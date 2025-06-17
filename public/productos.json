@@ -1,210 +1,227 @@
 [
   {
     "id": 1,
-    "nombre": "P-1-Remera Cyberpunk - Logo Almango",
-    "precio": 50000,
+    "nombre": "Remera Limited Edition - Almango Pop Covers",
+    "precio": 25000,
     "imagenes": [
-      "/img/06-tienda/tienda1-a.png",
-      "/img/06-tienda/tienda1-b.png",
-      "/img/06-tienda/tienda1-c.png",
-      "/img/06-tienda/tienda1-d.png"
+      "public/img/06-tienda/tienda1-a.png",
+      "public/img/06-tienda/tienda1-b.png",
+      "public/img/06-tienda/tienda1-c.png"
     ],
-    "categoria": "camiseta",
-    "descripcion": "Remera unisex estilo retro-futurista con el logo de Almango Pop Covers en neón."
+    "categoria": "merchandising",
+    "descripcion": "Remera oficial de la banda con diseño exclusivo. 100% algodón, edición limitada con numeración serigrafiada.",
+    "stock": 50,
+    "destacado": true
   },
   {
     "id": 2,
-    "nombre": "P-2-Camiseta Glowbeat 80s",
-    "precio": 55890,
+    "nombre": "Pack VIP Experience - Show Completo",
+    "precio": 150000,
     "imagenes": [
-      "/img/06-tienda/tienda2-a.png",
-      "/img/06-tienda/tienda2-b.png",
-      "/img/06-tienda/tienda2-c.png",
-      "/img/06-tienda/tienda2-d.png"
+      "public/img/06-tienda/tienda2-a.png",
+      "public/img/06-tienda/tienda2-b.png",
+      "public/img/06-tienda/tienda2-c.png"
     ],
-    "categoria": "camiseta",
-    "descripcion": "Camiseta estilo 80s con estampado brillante inspirado en sintetizadores y luces de discoteca."
+    "categoria": "experiencias",
+    "descripcion": "Incluye: Entrada premium, acceso a soundcheck, meet & greet con la banda, merchandising exclusivo y foto grupal.",
+    "stock": 10,
+    "fechasDisponibles": ["2023-12-15", "2024-02-20", "2024-04-05"]
   },
   {
     "id": 3,
-    "nombre": "P-3-Buzo Neon Pulse Azul",
-    "precio": 38250,
+    "nombre": "Entrada General - Show Retro 80s",
+    "precio": 80000,
     "imagenes": [
-      "/img/06-tienda/tienda3-a.png",
-      "/img/06-tienda/tienda3-b.png",
-      "/img/06-tienda/tienda3-c.png",
-      "/img/06-tienda/tienda3-d.png"
+      "public/img/06-tienda/tienda3-a.png",
+      "public/img/06-tienda/tienda3-b.png",
+      "public/img/06-tienda/tienda3-c.png"
     ],
-    "categoria": "buzo",
-    "descripcion": "Buzo azul eléctrico con detalles reflectantes y parche cyberbeat."
+    "categoria": "entradas",
+    "descripcion": "Entrada para nuestro espectáculo temático de los 80s. Duración: 3 horas con dos intervalos.",
+    "stock": 200,
+    "fechaEvento": "2023-11-25"
   },
   {
     "id": 4,
-    "nombre": "P-4-Conjunto Streetwave Futurista",
-    "precio": 67780,
+    "nombre": "Vinilo Firmado - Greatest Hits Live",
+    "precio": 45000,
     "imagenes": [
-      "/img/06-tienda/tienda4-a.png",
-      "/img/06-tienda/tienda4-b.png",
-      "/img/06-tienda/tienda4-c.png",
-      "/img/06-tienda/tienda4-d.png"
+      "public/img/06-tienda/tienda4-a.png",
+      "public/img/06-tienda/tienda4-b.png",
+      "public/img/06-tienda/tienda4-c.png"
     ],
-    "categoria": "conjunto",
-    "descripcion": "Set urbano inspirado en la moda de los 90s, con guiños sci-fi y colores vibrantes."
+    "categoria": "merchandising",
+    "descripcion": "Edición limitada en vinilo de 180g con las mejores versiones en vivo. Incluye fotos exclusivas y firmas de todos los miembros.",
+    "stock": 30,
+    "destacado": true
   },
   {
     "id": 5,
-    "nombre": "P-5-Gorra Electrónica Rebel",
-    "precio": 45210,
+    "nombre": "Pack Familiar (4 entradas) - Show 90s",
+    "precio": 240000,
     "imagenes": [
-      "/img/06-tienda/tienda5-a.png",
-      "/img/06-tienda/tienda5-b.png",
-      "/img/06-tienda/tienda5-c.png",
-      "/img/06-tienda/tienda5-d.png"
+      "public/img/06-tienda/tienda5-a.png",
+      "public/img/06-tienda/tienda5-b.png",
+      "public/img/06-tienda/tienda5-c.png"
     ],
-    "categoria": "gorro",
-    "descripcion": "Gorra con visor y detalles en vinilo, inspirada en los DJ de los 80s."
+    "categoria": "entradas",
+    "descripcion": "Ahorra un 25% comprando este pack familiar para nuestro show temático de los 90s. Zona preferencial.",
+    "stock": 15,
+    "fechaEvento": "2024-01-12"
   },
   {
     "id": 6,
-    "nombre": "P-6-Vestido Cyber Diva",
-    "precio": 81900,
+    "nombre": "Gorra Oficial - Almango Pop",
+    "precio": 18000,
     "imagenes": [
-      "/img/06-tienda/tienda6-a.png",
-      "/img/06-tienda/tienda6-b.png",
-      "/img/06-tienda/tienda6-c.png",
-      "/img/06-tienda/tienda6-d.png"
+      "public/img/06-tienda/tienda6-a.png",
+      "public/img/06-tienda/tienda6-b.png",
+      "public/img/06-tienda/tienda6-c.png"
     ],
-    "categoria": "vestido",
-    "descripcion": "Vestido con brillo metálico y cortes geométricos, ideal para escenarios retrofuturistas."
+    "categoria": "merchandising",
+    "descripcion": "Gorra trucker ajustable con logo bordado. Diseño retro futurista disponible en 3 colores.",
+    "stock": 40,
+    "colores": ["Negro", "Blanco", "Rojo"]
   },
   {
     "id": 7,
-    "nombre": "P-7-Campera Rock Synthwave",
-    "precio": 73560,
+    "nombre": "Clase Magistral con los Músicos",
+    "precio": 120000,
     "imagenes": [
-      "/img/06-tienda/tienda7-a.png",
-      "/img/06-tienda/tienda7-b.png",
-      "/img/06-tienda/tienda7-c.png",
-      "/img/06-tienda/tienda7-d.png"
+      "public/img/06-tienda/tienda7-a.png",
+      "public/img/06-tienda/tienda7-b.png",
+      "public/img/06-tienda/tienda7-c.png"
     ],
-    "categoria": "chaqueta",
-    "descripcion": "Chaqueta de cuero sintético negra con detalles LED, un clásico cyberpunk."
+    "categoria": "experiencias",
+    "descripcion": "Sesión de 3 horas donde los miembros de la banda enseñan sus técnicas para recrear los clásicos. Incluye material didáctico.",
+    "stock": 8,
+    "fechasDisponibles": ["2023-12-03", "2024-03-10"]
   },
   {
     "id": 8,
-    "nombre": "P-8-Pantalón Holográfico Groove",
-    "precio": 59780,
+    "nombre": "CD + Remera Combo Pack",
+    "precio": 35000,
     "imagenes": [
-      "/img/06-tienda/tienda8-a.png",
-      "/img/06-tienda/tienda8-b.png",
-      "/img/06-tienda/tienda8-c.png",
-      "/img/06-tienda/tienda8-d.png"
+      "public/img/06-tienda/tienda8-a.png",
+      "public/img/06-tienda/tienda8-b.png",
+      "public/img/06-tienda/tienda8-c.png"
     ],
-    "categoria": "pantalón",
-    "descripcion": "Pantalón efecto holográfico con líneas retro que brillan bajo luces UV."
+    "categoria": "merchandising",
+    "descripcion": "Ahorra comprando este combo que incluye nuestro último CD en vivo + remera básica de la banda.",
+    "stock": 25,
+    "destacado": true
   },
   {
     "id": 9,
-    "nombre": "P-9-Camisa Lumínica FunkyWave",
-    "precio": 44370,
+    "nombre": "Entrada Doble + Cena - Show Romántico",
+    "precio": 210000,
     "imagenes": [
-      "/img/06-tienda/tienda9-a.png",
-      "/img/06-tienda/tienda9-b.png",
-      "/img/06-tienda/tienda9-c.png",
-      "/img/06-tienda/tienda9-d.png"
+      "public/img/06-tienda/tienda9-a.png",
+      "public/img/06-tienda/tienda9-b.png",
+      "public/img/06-tienda/tienda9-c.png"
     ],
-    "categoria": "camisa",
-    "descripcion": "Camisa con fibras luminiscentes y patrón visual psicodélico digital."
+    "categoria": "entradas",
+    "descripcion": "Experiencia completa: 2 entradas en zona VIP + cena de 3 pasos en restaurante asociado + brindis.",
+    "stock": 12,
+    "fechaEvento": "2024-02-14"
   },
   {
     "id": 10,
-    "nombre": "P-10-Botas Galácticas - Platform Flash",
-    "precio": 68240,
+    "nombre": "Taza Termica - Almango Pop",
+    "precio": 15000,
     "imagenes": [
-      "/img/06-tienda/tienda10-a.png",
-      "/img/06-tienda/tienda10-b.png",
-      "/img/06-tienda/tienda10-c.png",
-      "/img/06-tienda/tienda10-d.png"
+      "public/img/06-tienda/tienda10-a.png",
+      "public/img/06-tienda/tienda10-b.png",
+      "public/img/06-tienda/tienda10-c.png"
     ],
-    "categoria": "calzado",
-    "descripcion": "Botas con plataforma luminosa y texturas inspiradas en viajes espaciales."
+    "categoria": "merchandising",
+    "descripcion": "Taza térmica de acero inoxidable con diseño exclusivo. Mantiene la temperatura por 12 horas.",
+    "stock": 60
   },
   {
     "id": 11,
-    "nombre": "P-11-Anteojos Visor StarWave",
-    "precio": 88900,
+    "nombre": "Experiencia de Ensayo Privado",
+    "precio": 300000,
     "imagenes": [
-      "/img/06-tienda/tienda11-a.png",
-      "/img/06-tienda/tienda11-b.png",
-      "/img/06-tienda/tienda11-c.png",
-      "/img/06-tienda/tienda11-d.png"
+      "public/img/06-tienda/tienda11-a.png",
+      "public/img/06-tienda/tienda11-b.png",
+      "public/img/06-tienda/tienda11-c.png"
     ],
-    "categoria": "anteojos",
-    "descripcion": "Anteojos de sol con visor envolvente estilo Daft Punk, reflectivo y retro."
+    "categoria": "experiencias",
+    "descripcion": "Asiste a un ensayo privado de la banda, participa en el proceso creativo y disfruta de un repertorio exclusivo.",
+    "stock": 4,
+    "fechasDisponibles": ["2023-12-10", "2024-01-20"]
   },
   {
     "id": 12,
-    "nombre": "P-12-Corbata Digital Soundline",
-    "precio": 54900,
+    "nombre": "Entrada General + CD - Show Especial Queen",
+    "precio": 110000,
     "imagenes": [
-      "/img/06-tienda/tienda12-a.png",
-      "/img/06-tienda/tienda12-b.png",
-      "/img/06-tienda/tienda12-c.png",
-      "/img/06-tienda/tienda12-d.png"
+      "public/img/06-tienda/tienda12-a.png",
+      "public/img/06-tienda/tienda12-b.png",
+      "public/img/06-tienda/tienda12-c.png"
     ],
-    "categoria": "corbata",
-    "descripcion": "Corbata interactiva con motivos de ondas sonoras y detalles LED."
+    "categoria": "paquetes",
+    "descripcion": "Entrada para nuestro tributo a Queen + CD especial con versiones exclusivas no disponibles en otros formatos.",
+    "stock": 50,
+    "fechaEvento": "2024-03-15"
   },
   {
     "id": 13,
-    "nombre": "P-13-Camisa Fluor Pop Vibes",
-    "precio": 73750,
+    "nombre": "Póster Autografiado - Edición Coleccionista",
+    "precio": 22000,
     "imagenes": [
-      "/img/06-tienda/tienda13-a.png",
-      "/img/06-tienda/tienda13-b.png",
-      "/img/06-tienda/tienda13-c.png",
-      "/img/06-tienda/tienda13-d.png"
+      "public/img/06-tienda/tienda13-a.png",
+      "public/img/06-tienda/tienda13-b.png",
+      "public/img/06-tienda/tienda13-c.png"
     ],
-    "categoria": "camisa",
-    "descripcion": "Camisa en colores flúor estilo dancefloor 90s con textura sintética."
+    "categoria": "merchandising",
+    "descripcion": "Póster en papel premium 60x90cm con diseño exclusivo, firmado por todos los miembros. Numerado.",
+    "stock": 35,
+    "destacado": true
   },
   {
     "id": 14,
-    "nombre": "P-14-Gorra Flashbeat UV",
-    "precio": 61900,
+    "nombre": "Pack Grupo (6 entradas) - Show 70s Disco",
+    "precio": 360000,
     "imagenes": [
-      "/img/06-tienda/tienda14-a.png",
-      "/img/06-tienda/tienda14-b.png",
-      "/img/06-tienda/tienda14-c.png",
-      "/img/06-tienda/tienda14-d.png"
+      "public/img/06-tienda/tienda14-a.png",
+      "public/img/06-tienda/tienda14-b.png",
+      "public/img/06-tienda/tienda14-c.png"
     ],
-    "categoria": "gorro",
-    "descripcion": "Gorra con impresión UV reactiva, perfecta para festivales futuristas."
+    "categoria": "entradas",
+    "descripcion": "Ahorra un 30% comprando este pack grupal para nuestro show disco de los 70s. Incluye mesa reservada.",
+    "stock": 8,
+    "fechaEvento": "2024-01-27"
   },
   {
     "id": 15,
-    "nombre": "P-15-Bufanda Pixelada Retrobit",
-    "precio": 41250,
+    "nombre": "Sesión Fotográfica con la Banda",
+    "precio": 180000,
     "imagenes": [
-      "/img/06-tienda/tienda15-a.png",
-      "/img/06-tienda/tienda15-b.png",
-      "/img/06-tienda/tienda15-c.png",
-      "/img/06-tienda/tienda15-d.png"
+      "public/img/06-tienda/tienda15-a.png",
+      "public/img/06-tienda/tienda15-b.png",
+      "public/img/06-tienda/tienda15-c.png"
     ],
-    "categoria": "bufanda",
-    "descripcion": "Bufanda con patrón de píxeles vintage y tejidos inteligentes térmicos."
+    "categoria": "experiencias",
+    "descripcion": "Sesión privada de 1 hora con fotógrafo profesional. Incluye 5 fotos editadas digitales y 1 impresa en formato poster.",
+    "stock": 6,
+    "fechasDisponibles": ["2023-12-20", "2024-02-05"]
   },
   {
     "id": 16,
-    "nombre": "P-16-Visera Prismática Chromapop",
-    "precio": 28900,
+    "nombre": "Pack Aniversario - 5 Años de Almango",
+    "precio": 50000,
     "imagenes": [
-      "/img/06-tienda/tienda16-a.png",
-      "/img/06-tienda/tienda16-b.png",
-      "/img/06-tienda/tienda16-c.png",
-      "/img/06-tienda/tienda16-d.png"
+      "public/img/06-tienda/tienda16-a.png",
+      "public/img/06-tienda/tienda16-b.png",
+      "public/img/06-tienda/tienda16-c.png",
+      "public/img/06-tienda/tienda16-d.png"
     ],
-    "categoria": "accesorios",
-    "descripcion": "Visera con filtro cromado y estilo 80s pop en colores cambiantes."
+    "categoria": "merchandising",
+    "descripcion": "Edición especial de aniversario incluye: CD recopilatorio, póster, stickers y pin exclusivo.",
+    "stock": 100,
+    "destacado": true,
+    "limitePorPersona": 2
   }
 ]

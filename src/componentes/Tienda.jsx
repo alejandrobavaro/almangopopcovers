@@ -4,9 +4,9 @@ import Swal from "sweetalert2";
 import ProductosTienda from "./TiendaProductos";
 import TiendaCarritoMini2 from "./TiendaCarritoMini2";
 import TiendaProductoDetalle from "./TiendaProductoDetalle";
-import Header from "./Header";
+
 import TiendaModalInicio from "./TiendaModalInicio";
-import { useOfertas } from "./TiendaOfertasContext";
+
 import '../assets/scss/_03-Componentes/_Tienda.scss';
 import '../assets/scss/_01-General/_Toastify.scss';
 
@@ -15,7 +15,7 @@ function Tienda({ cart, setCart, addToCart, removeFromCart, searchQuery, setSear
   const [detalle, setDetalle] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [showModal, setShowModal] = useState(true);
-  const { ofertas } = useOfertas();
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [stageLights, setStageLights] = useState(false);
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TiendaProductos from './TiendaProductos'; 
-import { OfertasProvider } from './TiendaOfertasContext'; 
+
 import '../assets/scss/_03-Componentes/_TiendaProductosLista.scss'; 
 
 const TiendaProductosLista = ({ onEncargar }) => {
@@ -24,21 +24,7 @@ const TiendaProductosLista = ({ onEncargar }) => {
   }, []);
 
   return (
-    <OfertasProvider>
-      <div className="retro-products-container">
-        {isLoading ? (
-          <div className="retro-loading">
-            <div className="vinyl-spinner"></div>
-            <p>CARGANDO PRODUCTOS...</p>
-          </div>
-        ) : (
-          <TiendaProductos 
-            products={productos} 
-            onEncargar={onEncargar} 
-          />
-        )}
-      </div>
-    </OfertasProvider>
+
   );
 };
 

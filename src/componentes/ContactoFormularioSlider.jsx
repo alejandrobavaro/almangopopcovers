@@ -1,65 +1,58 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react";
 import "../assets/scss/_03-Componentes/_ContactoFormularioSlider.scss";
 
 const ContactoFormularioSlider = () => {
-  const [productos, setProductos] = useState([]);
+  const [formData, setFormData] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+    asunto: "",
+    mensaje: ""
+  });
 
-  useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const response = await fetch("/productos.json");
-        const productos = await response.json();
-        setProductos(productos);
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-      }
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
-    fetchProductos();
-  }, []);
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: true,
-    fade: true,
-    cssEase: 'cubic-bezier(0.47, 0, 0.745, 0.715)'
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí iría la lógica para enviar el formulario
+    console.log("Formulario enviado:", formData);
+    // Resetear el formulario después del envío
+    setFormData({
+      nombre: "",
+      telefono: "",
+      email: "",
+      asunto: "",
+      mensaje: ""
+    });
   };
 
   return (
     <div className="cyber-contact-form-slider">
-      {/* Efecto de borde neón */}
       <div className="cyber-border-glow"></div>
       
       <div className="cyber-form-slider-container">
-        {/* Formulario estilo terminal */}
         <div className="cyber-form-column">
           <h2 className="cyber-form-title" data-text="CONTÁCTANOS">
             CONTÁCTANOS
           </h2>
           
-          <form
-            className="cyber-contact-form"
-            action="https://formspree.io/f/xbjnlgzz"
-            target="_blank"
-            method="post"
-          >
+          <form className="cyber-contact-form" onSubmit={handleSubmit}>
             <div className="cyber-form-group">
               <label htmlFor="nombre">
-                <span className="cyber-input-prefix">></span> NOMBRE:
+                <span className="cyber-input-prefix">{'>'}</span> NOMBRE:
               </label>
               <input
                 type="text"
                 id="nombre"
                 name="nombre"
+                value={formData.nombre}
+                onChange={handleChange}
                 placeholder="INGRESA_TU_NOMBRE"
                 required
               />
@@ -68,12 +61,14 @@ const ContactoFormularioSlider = () => {
             
             <div className="cyber-form-group">
               <label htmlFor="telefono">
-                <span className="cyber-input-prefix">></span> TELÉFONO:
+                <span className="cyber-input-prefix">{'>'}</span> TELÉFONO:
               </label>
               <input
                 type="tel"
                 id="telefono"
                 name="telefono"
+                value={formData.telefono}
+                onChange={handleChange}
                 placeholder="INGRESA_TU_TELÉFONO"
                 required
               />
@@ -82,12 +77,14 @@ const ContactoFormularioSlider = () => {
             
             <div className="cyber-form-group">
               <label htmlFor="email">
-                <span className="cyber-input-prefix">></span> EMAIL:
+                <span className="cyber-input-prefix">{'>'}</span> EMAIL:
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="INGRESA_TU_EMAIL"
                 required
               />
@@ -96,12 +93,14 @@ const ContactoFormularioSlider = () => {
             
             <div className="cyber-form-group">
               <label htmlFor="asunto">
-                <span className="cyber-input-prefix">></span> ASUNTO:
+                <span className="cyber-input-prefix">{'>'}</span> ASUNTO:
               </label>
               <input
                 type="text"
                 id="asunto"
                 name="asunto"
+                value={formData.asunto}
+                onChange={handleChange}
                 placeholder="DESCRIBE_EL_ASUNTO"
                 required
               />
@@ -110,11 +109,13 @@ const ContactoFormularioSlider = () => {
             
             <div className="cyber-form-group">
               <label htmlFor="mensaje">
-                <span className="cyber-input-prefix">></span> MENSAJE:
+                <span className="cyber-input-prefix">{'>'}</span> MENSAJE:
               </label>
               <textarea
                 id="mensaje"
                 name="mensaje"
+                value={formData.mensaje}
+                onChange={handleChange}
                 rows={4}
                 placeholder="ESCRIBE_TU_MENSAJE_AQUÍ..."
                 required
@@ -129,17 +130,24 @@ const ContactoFormularioSlider = () => {
           </form>
         </div>
 
-        {/* Carrusel de discos holográficos */}
-        <div className="cyber-slider-column">
-          <h2 className="cyber-slider-title">
+        <div className="cyber-image-column">
+          <h2 className="cyber-image-title">
             <span className="cyber-title-highlight">COLECCIÓN_DIGITAL</span>
           </h2>
           
-        
+          <div className="cyber-image-wrapper">
+            <img 
+              src="/img/02-logos/logo1.png" 
+              alt="Almango Pop Covers Logo"
+              className="cyber-image"
+              onError={(e) => {
+                e.target.src = '/img/placeholder-logo.png';
+              }}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Efecto de scanlines */}
       <div className="cyber-scanlines"></div>
     </div>
   );

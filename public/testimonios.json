@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "cita": "Almango transformó nuestra fiesta corporativa en un evento inolvidable. ¡Todos bailaron toda la noche!",
+      "autor": "María González",
+      "rol": "Directora de RRHH, TechCorp"
+    },
+    {
+      "id": 2,
+      "cita": "La energía que transmiten es increíble. Contratarlos fue lo mejor que hicimos para nuestro resort.",
+      "autor": "Carlos Mendoza",
+      "rol": "Gerente, Luxury Hotels"
+    }
+  ]

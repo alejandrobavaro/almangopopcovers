@@ -1,0 +1,463 @@
+/* -------------------------------------------- */
+/* HEADER CYBERPUNK RETROFUTURISTA - ALMANGO POP */
+/* -------------------------------------------- */
+
+.cyber-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 20, 0.95) 0%,
+    rgba(10, 10, 40, 0.9) 100%
+  );
+  border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+/* Barra de estado superior */
+.cyber-status-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.cyber-status-item {
+  position: relative;
+  padding-left: 1.2rem;
+  
+  &::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    color: #ff00f0;
+    animation: cyber-flicker 3s infinite alternate;
+  }
+}
+
+/* Contenedor principal */
+.cyber-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  position: relative;
+}
+
+/* Logo con efecto neón */
+.cyber-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    
+    .cyber-logo-glow {
+      opacity: 0.8;
+    }
+  }
+}
+
+.cyber-logo-image {
+  height: 50px;
+  width: auto;
+  z-index: 2;
+  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.7));
+}
+
+.cyber-logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 240, 255, 0.5) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Búsqueda estilo terminal */
+.cyber-search {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+  position: relative;
+}
+
+.cyber-search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-search-prompt {
+  font-family: 'Fira Code', monospace;
+  color: #00f0ff;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.cyber-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e0e0e0;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  outline: none;
+  min-width: 150px;
+  
+  &::placeholder {
+    color: rgba(224, 224, 224, 0.3);
+    font-size: 0.8rem;
+  }
+}
+
+.cyber-search-cursor {
+  width: 8px;
+  height: 16px;
+  background: #00f0ff;
+  margin-left: 5px;
+  animation: cyber-blink 1s infinite;
+}
+
+/* Menú principal */
+.cyber-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.cyber-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+  
+  &:hover {
+    .cyber-nav-icon {
+      color: #ff00f0;
+      transform: scale(1.2);
+    }
+    
+    .cyber-nav-text {
+      text-shadow: 0 0 10px rgba(255, 0, 240, 0.7);
+    }
+    
+    .cyber-nav-code {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff00f0, #00f0ff);
+    transition: all 0.3s ease;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+.cyber-nav-icon {
+  font-size: 1.2rem;
+  color: #00f0ff;
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.cyber-nav-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  color: #e0e0e0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+
+.cyber-nav-code {
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0;
+  width: 100%;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #00f0ff;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+/* Controles de usuario */
+.cyber-user-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.cyber-user-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    .cyber-user-icon {
+      color: #ff00f0;
+      transform: scale(1.2);
+    }
+    
+    .cyber-user-text {
+      text-shadow: 0 0 8px rgba(255, 0, 240, 0.7);
+    }
+    
+    &::after {
+      width: 100%;
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #ff00f0;
+    transition: width 0.3s ease;
+  }
+  
+  &.register {
+    background: rgba(255, 0, 240, 0.1);
+    border: 1px solid rgba(255, 0, 240, 0.3);
+    border-radius: 4px;
+    
+    &:hover {
+      background: rgba(255, 0, 240, 0.2);
+      box-shadow: 0 0 15px rgba(255, 0, 240, 0.3);
+    }
+  }
+}
+
+.cyber-user-icon {
+  font-size: 1.2rem;
+  color: #00f0ff;
+  margin-bottom: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.cyber-user-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: #e0e0e0;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: all 0.3s ease;
+}
+
+/* Botones de búsqueda y menú móvil */
+.cyber-search-toggle,
+.cyber-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #00f0ff;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: #ff00f0;
+    transform: scale(1.1);
+  }
+}
+
+.cyber-search-icon {
+  font-size: 1.2rem;
+}
+
+.cyber-menu-toggle {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cyber-menu-bar {
+  width: 100%;
+  height: 2px;
+  background: #00f0ff;
+  transition: all 0.3s ease;
+  
+  &:nth-child(1).active {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  &:nth-child(2).active {
+    opacity: 0;
+  }
+  
+  &:nth-child(3).active {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+/* Animaciones */
+@keyframes cyber-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cyber-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cyber-header-main {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .cyber-nav {
+    gap: 1rem;
+  }
+  
+  .cyber-nav-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cyber-header-main {
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .cyber-search {
+    order: 3;
+    width: 100%;
+    max-width: none;
+    margin: 0.5rem 0 0 0;
+    display: none;
+    
+    &.mobile-visible {
+      display: block;
+    }
+  }
+  
+  .cyber-nav {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 20, 0.95);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+    
+    &.active {
+      transform: translateY(0);
+    }
+  }
+  
+  .cyber-nav-link {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    
+    &:hover {
+      background: rgba(0, 240, 255, 0.1);
+    }
+  }
+  
+  .cyber-user-controls {
+    margin-left: auto;
+  }
+  
+  .cyber-search-toggle,
+  .cyber-menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-status-bar {
+    padding: 0.3rem 1rem;
+    font-size: 0.6rem;
+  }
+  
+  .cyber-user-text {
+    font-size: 0.6rem;
+  }
+  
+  .cyber-user-btn {
+    padding: 0.5rem;
+    
+    &.register {
+      display: none;
+    }
+  }
+}

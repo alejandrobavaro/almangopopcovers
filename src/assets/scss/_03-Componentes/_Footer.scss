@@ -1,120 +1,80 @@
-/* -------------------------------------------- */
-/* FOOTER - ESTILO CYBERPUNK (CONTENIDO ORIGINAL) */
-/* -------------------------------------------- */
-
 .cyber-footer {
-  background: 
-    radial-gradient(circle at center, #0a0a1a 0%, #000000 100%),
-    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 50px 50px;
-  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #0000144f 0%, #010d3554 100%);
+  border-top: 2px solid #00f0ff;
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 -5px 20px rgba(0, 240, 255, 0.2);
   position: relative;
-  border-top: 1px solid rgba(0, 240, 255, 0.3);
+  overflow: hidden;
 }
 
-/* Barras de escaneo (reemplazan cintas de cassette) */
 .cyber-scan-bar {
-  height: 2px;
-  background: linear-gradient(
-    90deg, 
-    transparent, 
-    rgba(0, 240, 255, 0.6), 
-    transparent
-  );
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00f0ff, transparent);
   margin: 1rem 0;
-  position: relative;
+  animation: scan-move 3s infinite linear;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 70%);
+@keyframes scan-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.cyber-footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
-/* Contenedor principal (misma estructura) */
-.cyber-footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 1rem;
-}
-
-/* Logos (vinilo original pero futurista) */
 .cyber-logo-container {
-  flex: 1;
-  min-width: 150px;
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  align-items: center;
+  min-width: 100px;
 }
 
 .cyber-vinyl {
   width: 100px;
   height: 100px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: transform 0.3s ease;
 
-  &:hover .cyber-vinyl-glow {
-    opacity: 0.6;
+  &:hover {
+    transform: rotate(10deg);
   }
 }
 
 .cyber-vinyl-image {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: auto;
   object-fit: contain;
+  max-height: 100%;
   filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
   z-index: 2;
 }
 
-.cyber-vinyl-center {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #00f0ff;
-  border-radius: 50%;
-  border: 2px solid #0a0a0a;
-  z-index: 3;
-}
 
-.cyber-vinyl-glow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-/* Redes sociales (mismo contenido, nuevo estilo) */
 .cyber-social-section {
-  flex: 2;
-  min-width: 300px;
   text-align: center;
-  padding: 1rem;
+  max-width: 500px;
 }
 
 .cyber-social-title {
-  font-family: 'Fira Code', monospace;
-  color: #00f0ff;
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
-
-  .cyber-prompt {
-    color: #ff00f0;
-    margin-right: 0.5rem;
-  }
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 50px #ffffffa4;
 }
 
 .cyber-social-buttons {
@@ -125,92 +85,59 @@
 }
 
 .cyber-social-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 240, 255, 0.1);
+  border: 2px solid #ffffff93;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 70px;
-  padding: 0.8rem;
-  background: rgba(26, 26, 26, 0.7);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  text-decoration: none;
+  font-size: 1.4rem;
+  color: #00ffffc0;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 
   &:hover {
-    background: rgba(0, 240, 255, 0.1);
-    border-color: #ff00f0;
-
-    .cyber-btn-icon {
-      color: #ff00f0;
-      text-shadow: 0 0 10px rgba(255, 0, 240, 0.7);
-    }
+    background: #e5ff0054;
+    color: #ffffff;
+    border-color: #00eeff;
+    box-shadow: 0 0 15px #e100ff;
+    transform: scale(1.1);
   }
 }
 
-.cyber-btn-icon {
-  font-family: 'Fira Code', monospace;
-  color: #00f0ff;
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-  transition: all 0.3s ease;
-}
-
 .cyber-btn-label {
-  font-family: 'Rajdhani', sans-serif;
-  color: #e0e0e0;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  display: none;
 }
 
-/* Copyright (mismo contenido) */
 .cyber-copyright {
-  text-align: center;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .cyber-neon-sign {
-  font-family: 'Rajdhani', sans-serif;
-  color: #00f0ff;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  font-size: 1rem;
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.8rem;
+  color: #00f7ff;
+  text-shadow: 0 0 5px #00f0ff;
+  letter-spacing: 0.15rem;
+  animation: flicker 4s infinite alternate;
 
   a {
     color: inherit;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
   }
 }
 
 .cyber-flicker {
-  animation: flicker 3s infinite alternate;
+  animation: flicker 3s infinite;
 }
 
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 10px #00f0ff;
-  }
-  20%, 24%, 55% {
-    opacity: 0.5;
-    text-shadow: none;
-  }
-}
-
-/* Responsive (misma estructura) */
-@media (max-width: 768px) {
-  .cyber-footer-content {
-    flex-direction: column;
-  }
-
-  .cyber-social-section {
-    order: -1;
-    margin-bottom: 2rem;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
 }

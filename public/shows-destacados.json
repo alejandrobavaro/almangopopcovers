@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "lugar": "Casino Central Buenos Aires",
+      "fecha": "15/12/2023",
+      "descripcion": "Noche de gala con lleno total y récord de asistencia en el casino.",
+      "imagen": "/img/shows/casino-central.jpg"
+    },
+    {
+      "id": 2,
+      "lugar": "Festival Verano Pop",
+      "fecha": "20/01/2024",
+      "descripcion": "Presentación estelar ante 5000 personas en el mayor festival de pop del país.",
+      "imagen": "/img/shows/festival-verano.jpg"
+    },
+    {
+      "id": 3,
+      "lugar": "Hotel Luxury Punta del Este",
+      "fecha": "10/02/2024",
+      "descripcion": "Temporada de verano en exclusivo resort internacional.",
+      "imagen": "/img/shows/punta-del-este.jpg"
+    }
+  ]

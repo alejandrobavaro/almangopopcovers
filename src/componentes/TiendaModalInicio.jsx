@@ -6,8 +6,7 @@ Modal.setAppElement("#root");
 
 const TiendaModalInicio = ({ showModal, closeModal }) => {
   const handleClose = () => {
-    // Efecto de sonido al cerrar
-    new Audio('/sounds/vinyl-scratch.mp3').play().catch(e => console.log(e));
+    new Audio('/audio/hologram-close.mp3').play().catch(e => console.log(e));
     closeModal();
   };
 
@@ -16,39 +15,35 @@ const TiendaModalInicio = ({ showModal, closeModal }) => {
       isOpen={showModal}
       onRequestClose={handleClose}
       contentLabel="Promoción"
-      className="RetroModal"
-      overlayClassName="RetroOverlay"
-      closeTimeoutMS={500}
+      className="modal-core"
+      overlayClassName="modal-overlay"
+      closeTimeoutMS={300}
     >
-      {/* Efecto VHS */}
-      <div className="vhs-overlay"></div>
+      <div className="scan-bar"></div>
       
-      {/* Cinta de cassette decorativa */}
-      <div className="cassette-tape-top"></div>
-      
-      <div className="retro-modal-wrapper">
-        <button onClick={handleClose} className="retro-modal-close">
-          ✕
-        </button>
+      <div className="modal-body">
+        <button onClick={handleClose} className="close-btn">×</button>
         
-        <div className="retro-modal-content">
-          <h2 className="retro-modal-title">¡OFERTAS PSICODÉLICAS!</h2>
-          <p className="retro-modal-subtitle">APROVECHA ESTOS BENEFICIOS GROOVY</p>
+        <div className="content">
+          <h2>OFERTAS DIGITALES</h2>
+          <p>» APROVECHA ESTOS BENEFICIOS</p>
           
-          <div className="retro-promo-list">
-            <div className="retro-promo-item disco">SUPER OFERTAS!</div>
-            <div className="retro-promo-item">CAMISETAS 20% OFF!</div>
-            <div className="retro-promo-item cassette">ENVÍOS A TODO EL PAÍS!</div>
-            <div className="retro-promo-item disco">SUPER AHORRO!!</div>
+          <div className="promo-grid">
+            <div>» SUPER OFERTAS</div>
+            <div>» DESCUENTOS 30%</div>
+            <div>» ENVIOS GRATIS</div>
+            <div>» OFERTAS RELOADED</div>
           </div>
           
-          <div className="retro-divider"></div>
+          <div className="divider"></div>
           
-          <button onClick={handleClose} className="retro-primary-btn">
-            ¡QUIERO VER MÁS!
+          <button onClick={handleClose} className="action-btn">
+            VER OFERTAS
           </button>
         </div>
       </div>
+
+      <div className="scan-bar"></div>
     </Modal>
   );
 };

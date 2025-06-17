@@ -1,176 +1,103 @@
-// Variables de estilo retro
-$purple-dark: #2a1e5c;
-$purple-light: #4a2f9e;
-$gold: #f4e87c;
-$pink-neon: #ff6b6b;
-$blue-night: #1a0933;
-$red-intense: #e91e63;
-$turquoise: #b8d8d8;
-
-// Estilos del carrito mini retro
-.retro-mini-cart {
-  position: relative;
-  background: linear-gradient(145deg, $purple-dark, $blue-night);
-  border: 3px solid $gold;
-  border-radius: 10px;
-  box-shadow: 
-    5px 5px 0 $pink-neon,
-    0 0 20px rgba($pink-neon, 0.5);
+/* Mobile-First (hasta 412px) */
+.music-mini-cart {
+  max-width: 412px;
+  margin: 0 auto;
   padding: 15px;
-  width: 220px;
-  font-family: 'Rubik Mono One', 'Arial Narrow', sans-serif;
-  color: $gold;
-  z-index: 100;
-  overflow: hidden;
+  border: 1px solid #00f0ff;
+  border-radius: 5px;
+  background: rgba(10, 10, 10, 0.8);
 }
 
-.cassette-tape {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: repeating-linear-gradient(
-    90deg,
-    $gold,
-    $gold 15px,
-    $pink-neon 15px,
-    $pink-neon 30px
-  );
-}
-
-.retro-cart-title {
-  font-size: 1.2rem;
+.music-cart-title {
+  color: #00f0ff;
   text-align: center;
-  margin: 10px 0 15px;
-  color: $pink-neon;
-  text-shadow: 2px 2px 0 $gold;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  
-  .vinyl-icon {
-    font-size: 1rem;
-    animation: spin 5s linear infinite;
-  }
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
 }
 
-.retro-empty-cart {
+.music-empty-cart {
+  color: rgba(224, 224, 224, 0.7);
   text-align: center;
   font-size: 0.9rem;
-  color: $turquoise;
-  padding: 10px 0;
-  font-style: italic;
 }
 
-.retro-mini-list {
+.music-cart-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 10px 0;
-  max-height: 150px;
-  overflow-y: auto;
+  margin: 0 0 15px 0;
 }
 
-.retro-mini-item {
+.music-cart-item {
   display: flex;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px dashed $pink-neon;
+  border-bottom: 1px dashed rgba(0, 240, 255, 0.3);
   
   &:last-child {
     border-bottom: none;
   }
 }
 
-.product-image-container {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  flex-shrink: 0;
-  
-  .vinyl-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 1px solid $gold;
-    pointer-events: none;
-  }
-}
-
-.retro-product-image {
-  width: 100%;
-  height: 100%;
+.music-product-img {
+  width: 40px;
+  height: 40px;
   object-fit: cover;
   border-radius: 50%;
-  z-index: 1;
-  position: relative;
+  margin-right: 10px;
+  border: 1px solid #00f0ff;
 }
 
-.retro-product-name {
+.music-product-info {
   flex: 1;
-  font-size: 0.8rem;
-  color: white;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.retro-product-price {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: $gold;
-  margin-left: 5px;
-}
-
-.retro-total {
-  font-size: 1rem;
-  text-align: center;
-  margin: 10px 0;
-  color: $turquoise;
   
-  .neon {
-    color: $gold;
-    text-shadow: 0 0 5px $pink-neon;
+  span:first-child {
+    display: block;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+  }
+  
+  span:last-child {
+    color: #00f0ff;
+    font-size: 0.8rem;
   }
 }
 
-.retro-view-more {
-  background: linear-gradient(145deg, $pink-neon, $red-intense);
-  color: $blue-night;
-  border: none;
-  border-radius: 20px;
-  padding: 5px 15px;
-  font-size: 0.9rem;
+.music-cart-total {
+  text-align: center;
+  color: #e0e0e0;
   font-weight: bold;
+  
+  span {
+    color: #00f0ff;
+  }
+}
+
+.music-view-btn {
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  color: #00f0ff;
+  border: 1px solid #00f0ff;
+  border-radius: 3px;
+  margin-top: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 100%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   
   &:hover {
-    background: linear-gradient(145deg, $gold, $turquoise);
-    transform: translateY(-2px);
-  }
-  
-  .blink {
-    animation: blink 1s infinite;
+    background: rgba(0, 240, 255, 0.1);
   }
 }
 
-// Animaciones
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Tablet (768px en adelante) */
+@media (min-width: 768px) {
+  .music-mini-cart {
+    max-width: 100%;
+  }
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* Desktop (1024px en adelante) */
+@media (min-width: 1024px) {
+  .music-mini-cart {
+    padding: 20px;
+  }
 }

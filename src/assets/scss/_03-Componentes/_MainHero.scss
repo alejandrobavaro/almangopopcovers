@@ -1,0 +1,205 @@
+/* -------------------------------------------- */
+/* HERO - MEJORADO */
+/* -------------------------------------------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  max-width: 412px;
+  margin: 0 auto;
+
+  &__container {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 20px solid #00f0ff;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+    position: relative;
+  }
+
+  &__image {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: grayscale(30%) contrast(120%) brightness(0.8);
+    animation: hue-rotate 30s infinite linear;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: grid-scroll 5s linear infinite;
+  }
+
+  &__scanlines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 95%,
+      rgba(0, 240, 255, 0.1) 96%
+    );
+    background-size: 100% 4px;
+    animation: scanline 8s linear infinite;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+    z-index: 2;
+  }
+
+  &__title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #00f0ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+    animation: text-glitch 5s infinite alternate;
+  }
+
+  &__tagline {
+    font-size: 1.5rem;
+    color: #ff00f0;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(255, 0, 240, 0.8);
+  }
+
+  &__glitch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00f0ff;
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+    
+    &::before, &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before {
+      color: #ff00f0;
+      animation: glitch-effect 3s infinite linear alternate-reverse;
+      left: 2px;
+    }
+    
+    &::after {
+      color: #00ff47;
+      animation: glitch-effect 2s infinite linear alternate-reverse;
+      left: -2px;
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s infinite;
+    
+    .hero__arrow {
+      color: #00f0ff;
+      font-size: 2rem;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+    }
+  }
+}
+
+/* Animations */
+@keyframes hue-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes grid-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 20px; }
+}
+
+@keyframes scanline {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes text-glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-effect {
+  0% { clip-path: inset(10% 0 90% 0); }
+  20% { clip-path: inset(80% 0 5% 0); }
+  40% { clip-path: inset(30% 0 60% 0); }
+  60% { clip-path: inset(70% 0 20% 0); }
+  80% { clip-path: inset(5% 0 80% 0); }
+  100% { clip-path: inset(50% 0 40% 0); }
+}
+
+@keyframes pulse {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.7; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+/* -------------------------------------------- */
+/* RESPONSIVE */
+/* -------------------------------------------- */
+
+@media (min-width: 768px) {
+  .hero {
+    max-width: 720px;
+
+    &__title {
+      font-size: 4rem;
+    }
+
+    &__tagline {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    max-width: 960px;
+  }
+}

@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import TiendaImgAgrandar from './TiendaImgAgrandar';
-import { useOfertas } from './TiendaOfertasContext';
 import '../assets/scss/_03-Componentes/_TiendaProductos.scss';
 
 function TiendaProductos({ products, addToCart, handleShowDetalle, searchQuery, selectedCategory }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { ofertas } = useOfertas();
 
   const openImageModal = (images, index) => {
-    // Efecto de sonido al abrir imagen
-    new Audio('/sounds/vinyl-click.mp3').play().catch(e => console.log(e));
+    new Audio('/audio/hologram-interaction.mp3').play().catch(e => console.log(e));
     setSelectedImages(images);
     setCurrentImageIndex(index);
     setIsModalOpen(true);
@@ -22,50 +19,44 @@ function TiendaProductos({ products, addToCart, handleShowDetalle, searchQuery, 
   };
 
   const handleAddToCart = (product) => {
-    // Efecto de sonido al añadir al carrito
-    new Audio('/sounds/cash-register.mp3').play().catch(e => console.log(e));
+    new Audio('/audio/digital-transaction.mp3').play().catch(e => console.log(e));
     addToCart(product);
   };
 
   return (
-    <div className="retro-products-grid">
+    <div className="cyber-products-grid">
       {products.map((product) => (
-        <div key={product.id} className="retro-product-card">
-          {/* Etiqueta de oferta estilo cartel de concierto */}
-          {ofertas.includes(product.id) && (
-            <div className="retro-offer-tag">
-              <span className="offer-text">¡OFERTA!</span>
-              <span className="offer-percent">30% OFF</span>
-            </div>
-          )}
-          
-          {/* Marco de vinilo para la imagen */}
-          <div className="vinyl-product-frame" onClick={() => openImageModal(product.imagenes, 0)}>
+        <div key={product.id} className="cyber-product-card">
+          {/* Contenedor de imagen con efecto holográfico */}
+          <div 
+            className="cyber-product-image-container" 
+            onClick={() => openImageModal(product.imagenes, 0)}
+          >
             <img
-              src={product.imagenes[0] || '/img/default-vinyl.png'}
+              src={product.imagenes[0] || '/img/default-hologram.webp'}
               alt={product.nombre}
-              className="retro-product-image"
+              className="cyber-product-image"
             />
-            <div className="vinyl-center"></div>
+            <div className="cyber-image-glitch"></div>
+            <div className="cyber-image-scanlines"></div>
           </div>
           
-          <h5 className="retro-product-title">{product.nombre}</h5>
+          <h3 className="cyber-product-title">
+            <span className="cyber-product-code">>></span> {product.nombre}
+          </h3>
           
-          {/* Precio con efecto neón */}
-          <h4 className="retro-product-price">
-            ${product.precio.toFixed(2)}
-            {ofertas.includes(product.id) && (
-              <span className="original-price">${(product.precio / 0.7).toFixed(2)}</span>
-            )}
-          </h4>
+          {/* Precio con estilo terminal */}
+          <div className="cyber-product-price">
+            <span className="cyber-price-value">${product.precio.toFixed(2)}</span>
+          </div>
           
-          {/* Botón estilo pedal de guitarra */}
+          {/* Botón estilo interfaz cyberpunk */}
           <button
-            className="retro-add-to-cart"
+            className="cyber-add-to-cart"
             onClick={() => handleAddToCart(product)}
           >
-            <span className="button-text">AÑADIR AL CARRITO</span>
-            <span className="button-light"></span>
+            <span className="cyber-btn-text">[AÑADIR_AL_CARRITO]</span>
+            <span className="cyber-btn-glow"></span>
           </button>
         </div>
       ))}

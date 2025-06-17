@@ -347,7 +347,51 @@
   }
 }
 
+/* Estados de carga y error */
+.cyber-loading,
+.cyber-error,
+.cyber-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #00f0ff;
+  font-family: 'Fira Code', monospace;
+  
+  p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+}
+
+.cyber-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 240, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #00f0ff;
+  animation: spin 1s ease-in-out infinite;
+  margin: 0 auto;
+}
+
+.cyber-empty {
+  background: rgba(10, 10, 26, 0.7);
+  border: 1px solid rgba(255, 0, 240, 0.3);
+  margin: 2rem auto;
+  max-width: 600px;
+  
+  p {
+    &::before, &::after {
+      content: "✻";
+      color: #ff00f0;
+      margin: 0 0.5rem;
+    }
+  }
+}
+
 /* Animaciones */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes scanline {
   0% { left: -100%; }
   100% { left: 100%; }
@@ -371,6 +415,31 @@
 }
 
 @media (max-width: 768px) {
+  .cyber-main-slider {
+    .slick-dots {
+      bottom: -30px;
+      
+      li {
+        margin: 0 3px;
+        
+        button {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: rgba(0, 240, 255, 0.3);
+          
+          &::before {
+            display: none;
+          }
+        }
+        
+        &.slick-active button {
+          background: #00f0ff;
+        }
+      }
+    }
+  }
+  
   .cyber-title-badge {
     font-size: 1.3rem;
     padding: 0.6rem 1.5rem;
@@ -385,6 +454,10 @@
     }
   }
   
+  .cyber-slide-hologram {
+    padding: 1rem;
+  }
+  
   .cyber-price-tag {
     padding: 0.5rem 1rem;
     bottom: 20px;
@@ -395,15 +468,22 @@
     }
   }
   
+  .cyber-sticker {
+    top: 10px;
+    left: 10px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
   .cyber-product-info {
     bottom: 20px;
     left: 20px;
     max-width: 200px;
     padding: 0.8rem;
-  }
-  
-  .cyber-product-name {
-    font-size: 1rem;
+    
+    .cyber-product-name {
+      font-size: 1rem;
+    }
   }
   
   .cyber-thumbnail {
@@ -423,9 +503,23 @@
   .cyber-title-badge {
     font-size: 1rem;
     letter-spacing: 0.1rem;
+    padding: 0.4rem 1rem;
   }
   
   .cyber-thumbnails-title {
+    font-size: 0.9rem;
+    margin: 2rem 0 1rem;
+  }
+  
+  .cyber-thumbnail {
+    width: 60px;
+  }
+  
+  .cyber-thumbnail-frame {
+    height: 60px;
+  }
+  
+  .cyber-empty p {
     font-size: 1rem;
   }
 }
