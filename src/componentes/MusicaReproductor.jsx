@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { 
   BsPlayFill, BsPauseFill, BsSkipEnd, BsSkipStart,
-  BsVolumeUp, BsVolumeMute, BsListUl, BsX, BsMusicNoteList
+  BsVolumeUp, BsVolumeMute, BsListUl, BsX, BsMusicNoteList, 
+  BsChevronDown, BsChevronUp, BsMusicPlayer
 } from 'react-icons/bs';
 import { MusicaContexto } from './MusicaContexto';
 
@@ -21,11 +22,15 @@ function MusicaReproductor() {
     handleSkipPrev,
     handleProgressChange,
     removeFromCart,
-    audioError
+    audioError,
+    audioRef
   } = useContext(MusicaContexto);
 
   const [showPlaylist, setShowPlaylist] = useState(false);
-  const [showMiniList, setShowMiniList] = useState(false);
+  const [isPlaylistMinimized, setIsPlaylistMinimized] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isPlayerMinimized, setIsPlayerMinimized] = useState(false);
+  const prevVolume = useRef(volume);
 
   const formatTime = (seconds) => {
     if (isNaN(seconds)) return '0:00';
@@ -34,41 +39,69 @@ function MusicaReproductor() {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
+  // Control de volumen y mute
+  const toggleMute = () => {
+    if (isMuted) {
+      setVolume(prevVolume.current);
+    } else {
+      prevVolume.current = volume;
+      setVolume(0);
+    }
+    setIsMuted(!isMuted);
+  };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
+    setIsMuted(newVolume === 0);
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume;
+    }
+  };
+
+  // Efecto para sincronizar el volumen del audio
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = isMuted ? 0 : volume;
+    }
+  }, [volume, isMuted, audioRef]);
+
+  // Efecto para mantener la reproducción al agregar canciones
+  useEffect(() => {
+    if (audioRef.current && isPlaying) {
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Error al intentar reproducir:", error);
+        });
+      }
+    }
+  }, [cart, audioRef, isPlaying]);
+
   if (audioError) {
     console.error('Error de audio:', audioError);
   }
 
+  if (isPlayerMinimized) {
+    return (
+      <div className="minimized-player" onClick={() => setIsPlayerMinimized(false)}>
+        <BsMusicPlayer className="player-icon" />
+        {cart.length > 0 && (
+          <span className="minimized-count">{cart.length}</span>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="music-player">
-      {/* Mini playlist */}
-      {cart.length > 1 && (
-        <div className={`mini-playlist ${showMiniList ? 'visible' : ''}`}>
-          <button 
-            className="toggle-mini-list"
-            onClick={() => setShowMiniList(!showMiniList)}
-            aria-label={showMiniList ? 'Ocultar lista' : 'Mostrar lista'}
-          >
-            <BsMusicNoteList />
-            <span className="count-badge">{cart.length}</span>
-          </button>
-          
-          <div className="mini-list-container">
-            {cart.map((song, index) => (
-              <div 
-                key={index}
-                className={`mini-list-item ${index === currentSongIndex ? 'active' : ''}`}
-                onClick={() => {
-                  setCurrentSongIndex(index);
-                  setIsPlaying(true);
-                }}
-              >
-                <span className="mini-list-number">{index + 1}.</span>
-                <span className="mini-list-title">{song.nombre}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <button 
+        className="minimize-btn"
+        onClick={() => setIsPlayerMinimized(true)}
+        aria-label="Minimizar reproductor"
+      >
+        <BsChevronDown />
+      </button>
 
       {/* Reproductor principal */}
       <div className="player-container">
@@ -82,16 +115,19 @@ function MusicaReproductor() {
                 onError={(e) => e.target.src = '/img/default-album.png'}
               />
             ) : (
-              <div className="empty-cover">NO IMAGE</div>
+              <div className="empty-cover">
+                <BsMusicPlayer className="placeholder-icon" />
+                <span className="placeholder-text">Selecciona una canción</span>
+              </div>
             )}
           </div>
           
           <div className="track-info">
             <div className="track-name">
-              {cart[currentSongIndex]?.nombre || 'No track selected'}
+              {cart[currentSongIndex]?.nombre || 'Selecciona una canción para reproducirla'}
             </div>
             <div className="artist-name">
-              {cart[currentSongIndex]?.artista || 'Unknown artist'}
+              {cart[currentSongIndex]?.artista || ''}
             </div>
           </div>
         </div>
@@ -140,46 +176,77 @@ function MusicaReproductor() {
           <div className="time-display">{formatTime(duration)}</div>
         </div>
         
-        <div className="volume-container">
-          <button className="volume-icon" aria-label="Control de volumen">
-            {volume > 0 ? <BsVolumeUp /> : <BsVolumeMute />}
+        <div className="right-controls">
+          <div className="volume-container">
+            <button 
+              className="volume-icon" 
+              onClick={toggleMute}
+              aria-label={isMuted ? 'Desactivar mute' : 'Activar mute'}
+            >
+              {isMuted || volume === 0 ? <BsVolumeMute /> : <BsVolumeUp />}
+            </button>
+            <input
+              type="range"
+              className="volume-slider"
+              min="0"
+              max="1"
+              step="0.01"
+              value={isMuted ? 0 : volume}
+              onChange={handleVolumeChange}
+              aria-label="Nivel de volumen"
+            />
+          </div>
+          
+          <button 
+            className="playlist-toggle"
+            onClick={() => {
+              setShowPlaylist(!showPlaylist);
+              if (!showPlaylist) setIsPlaylistMinimized(false);
+            }}
+            disabled={cart.length === 0}
+            aria-label="Mostrar playlist"
+          >
+            <BsListUl />
+            <span className="playlist-count">{cart.length}</span>
           </button>
-          <input
-            type="range"
-            className="volume-slider"
-            min="0"
-            max="1"
-            step="0.01"
-            value={volume}
-            onChange={(e) => setVolume(parseFloat(e.target.value))}
-            aria-label="Nivel de volumen"
-          />
         </div>
-        
-        <button 
-          className="playlist-toggle"
-          onClick={() => setShowPlaylist(!showPlaylist)}
-          disabled={cart.length === 0}
-          aria-label="Mostrar playlist"
-        >
-          <BsListUl />
-          <span className="playlist-count">{cart.length}</span>
-        </button>
       </div>
       
-      {/* Playlist completa */}
+      {/* Playlist completa - Lado derecho */}
       {showPlaylist && (
-        <div className="playlist-popup">
-          <div className="popup-header">
-            <h3>PLAYLIST ({cart.length})</h3>
-            <button 
-              onClick={() => setShowPlaylist(false)}
-              aria-label="Cerrar playlist"
-            >
-              <BsX />
-            </button>
+        <div className="playlist-popup right-side">
+          <div 
+            className="popup-header"
+            onClick={() => setIsPlaylistMinimized(!isPlaylistMinimized)}
+          >
+            <div className="header-content">
+              <BsMusicNoteList className="playlist-icon" />
+              <h3>PLAYLIST ({cart.length})</h3>
+              {cart[currentSongIndex]?.nombre && (
+                <span className="current-song">{cart[currentSongIndex]?.nombre}</span>
+              )}
+            </div>
+            <div className="header-actions">
+              <button 
+                className="toggle-minimize-btn"
+                aria-label={isPlaylistMinimized ? 'Expandir' : 'Minimizar'}
+              >
+                {isPlaylistMinimized ? <BsChevronUp /> : <BsChevronDown />}
+              </button>
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowPlaylist(false);
+                }}
+                aria-label="Cerrar playlist"
+                className="close-btn"
+              >
+                <BsX />
+              </button>
+            </div>
           </div>
-          <div className="playlist-items">
+          
+          <div className={`playlist-items ${isPlaylistMinimized ? 'minimized' : ''}`}>
             {cart.map((song, index) => (
               <div 
                 key={index}
@@ -191,7 +258,6 @@ function MusicaReproductor() {
                     setCurrentSongIndex(index);
                     setIsPlaying(true);
                   }}
-                  aria-label={`Reproducir ${song.nombre}`}
                 >
                   <span className="item-number">{index + 1}.</span>
                   <div className="item-info">
@@ -201,8 +267,10 @@ function MusicaReproductor() {
                 </div>
                 <button 
                   className="remove-item"
-                  onClick={() => removeFromCart(index)}
-                  aria-label="Eliminar de la playlist"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromCart(index);
+                  }}
                 >
                   <BsX />
                 </button>

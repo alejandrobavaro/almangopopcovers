@@ -1,0 +1,376 @@
+/* -------------------------------------------- */
+/* CONTACTO PROFESIONAL - ESTILO CYBERPUNK MEJORADO */
+/* -------------------------------------------- */
+
+.publicidad-contact-section {
+  position: relative;
+  background: 
+    radial-gradient(circle at center, #0a0a1a 0%, #00000000 100%),
+    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px;
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 1400px;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
+}
+
+.publicidad-scan-bar {
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.6),
+    transparent
+  );
+  border-radius: 20px;
+  margin: 1rem 0;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 70%);
+  }
+}
+
+.publicidad-contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.title-badge {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+    border-radius: 20px;
+  font-size: 1.8rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  background: rgba(26, 26, 26, 0.7);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 240, 255, 0.1),
+      transparent
+    );
+    animation: scanline 6s linear infinite;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+.contact-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  color: rgba(224, 224, 224, 0.8);
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.contact-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 20px;
+  border-left: 3px solid #fffb00;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.detail-label {
+  width: 120px;
+  font-family: 'Fira Code', monospace;
+  color: #00f0ff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.detail-value {
+  flex: 1;
+  font-family: 'Rajdhani', sans-serif;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.publicidad-contact-form {
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0.5rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+}
+
+.title-highlight {
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff00f0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.form-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  color: rgba(224, 224, 224, 0.7);
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  
+  label {
+    display: block;
+    font-family: 'Fira Code', monospace;
+    color: #00f0ff;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .input-prefix {
+    color: #ff00f0;
+    margin-right: 0.5rem;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(10, 10, 20, 0.7);
+    border-radius: 20px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    color: #e0e0e0;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-bottom-color: #ff00f0;
+      
+      & ~ .input-line, & ~ .textarea-line {
+        transform: scaleX(1);
+      }
+    }
+    
+    &::placeholder {
+      color: rgba(224, 224, 224, 0.4);
+      font-family: 'Fira Code', monospace;
+    }
+  }
+  
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300f0ff'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 1.5rem;
+  }
+  
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+}
+
+.input-line, .textarea-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ff00f0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.textarea-line {
+  bottom: 2px;
+}
+
+.submit-button {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 20px;
+  color: #e0e0e0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  
+  &:hover {
+    color: #0a0a0a;
+    border-color: #ff00f0;
+    
+    .button-glow {
+      transform: translateY(0);
+    }
+  }
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #00f0ff, #ff00f0);
+  z-index: 1;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Animaciones */
+@keyframes scanline {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+
+  border-radius: 20px;
+  // border-left: 3px solid #fffb00;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-left-color: #00f0ff;
+ 
+  }
+}
+
+.contact-logo {
+  max-width: 350px;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+  transition: all 0.3s ease;
+  
+  &:hover {
+    filter: drop-shadow(0 0 55px rgb(0, 225, 255));
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    max-width: 140px;
+  }
+}

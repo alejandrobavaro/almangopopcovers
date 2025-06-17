@@ -7,7 +7,7 @@ import MainSobreLaBanda from "../componentes/MainSobreLaBanda";
 import MainShowsDestacados from "../componentes/MainShowsDestacados";
 import MainNuestrosServicios from "../componentes/MainNuestrosServicios";
 import MainLoQueDicenFans from "../componentes/MainLoQueDicenFans";
-import MainContactoProfesional from "../componentes/MainContactoProfesional";
+import ContactoProfesional from "../componentes/ContactoProfesional";
 
 const MainContent = () => {
   const [datos, setDatos] = useState({
@@ -78,10 +78,10 @@ const MainContent = () => {
 
   if (datos.cargando) {
     return (
-      <main className="cyber-main-content">
-        <div className="cyber-cargando">
-          <div className="cyber-spinner"></div>
-          <p>CARGANDO CONTENIDO...</p>
+      <main className="cyberpunk-main">
+        <div className="cyberpunk-loader">
+          <div className="cyberpunk-spinner"></div>
+          <p className="cyberpunk-loader-text">CARGANDO DATOS...</p>
         </div>
       </main>
     );
@@ -89,27 +89,48 @@ const MainContent = () => {
 
   if (datos.error) {
     return (
-      <main className="cyber-main-content">
-        <div className="cyber-error">
-          <p>ERROR: {datos.error}</p>
+      <main className="cyberpunk-main">
+        <div className="cyberpunk-error">
+          <p className="cyberpunk-error-text">ERROR: {datos.error}</p>
         </div>
       </main>
     );
   }
 
   return (
-    <main className="cyber-main-content">
+    <main className="cyberpunk-main">
       <MainHero 
         nombreBanda={datos.infoBanda.nombre} 
         eslogan={datos.infoBanda.eslogan} 
       />
-      <MainIntegrantes integrantes={datos.integrantes} />
-      <MainElEspectaculo descripcionCreativa={datos.descripcionCreativa} />
-      <MainSobreLaBanda infoBanda={datos.infoBanda} />
-      <MainShowsDestacados showsDestacados={datos.showsDestacados} />
-      <MainNuestrosServicios servicios={datos.servicios} />
-      <MainLoQueDicenFans testimonios={datos.testimonios} />
-      <MainContactoProfesional />
+      
+      <section className="cyberpunk-section">
+        <MainIntegrantes integrantes={datos.integrantes} />
+      </section>
+      
+      <section className="cyberpunk-section cyberpunk-section--alt">
+        <MainElEspectaculo descripcionCreativa={datos.descripcionCreativa} />
+      </section>
+      
+      <section className="cyberpunk-section">
+        <MainSobreLaBanda infoBanda={datos.infoBanda} />
+      </section>
+      
+      <section className="cyberpunk-section cyberpunk-section--alt">
+        <MainShowsDestacados showsDestacados={datos.showsDestacados} />
+      </section>
+      
+      <section className="cyberpunk-section">
+        <MainNuestrosServicios servicios={datos.servicios} />
+      </section>
+      
+      <section className="cyberpunk-section cyberpunk-section--alt">
+        <MainLoQueDicenFans testimonios={datos.testimonios} />
+      </section>
+      
+      <section className="cyberpunk-section">
+        <ContactoProfesional />
+      </section>
     </main>
   );
 };

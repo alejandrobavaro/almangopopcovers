@@ -1,20 +1,18 @@
-/* Estilos base - Mobile First */
+/* Mobile First (max 412px) */
 .cyber-contact-section {
   position: relative;
-  padding: 2rem 0;
-  background: radial-gradient(circle at center, #0a0a1a 0%, #000000 100%);
+  padding: 2rem 1rem;
+
 }
 
 .cyber-contact-container {
   position: relative;
-  background-color: rgba(10, 10, 20, 0.8);
-  border: 1px solid #1a1a1a;
   max-width: 412px;
   margin: 0 auto;
-  padding: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  padding: 0px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 150px rgba(0, 238, 255, 0.418);
 }
 
 .cyber-border-glow {
@@ -23,110 +21,43 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid transparent;
-  border-image: linear-gradient(135deg, #00f0ff, #ff00f0) 1;
-  animation: borderPulse 4s infinite alternate;
+
   pointer-events: none;
   z-index: 1;
 }
 
-@keyframes borderPulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-  100% { opacity: 0.3; }
-}
 
 /* Títulos */
 .cyber-contact-title {
   font-family: 'Orbitron', sans-serif;
-  color: #e0e0e0;
+  color: #00f0ff;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin: 1rem 0 1.5rem;
   position: relative;
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
   
-  &::before, &::after {
+  &::before {
     content: attr(data-text);
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    overflow: hidden;
-  }
-  
-  &::before {
     color: #ff00f0;
     clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
     animation: glitchEffect 3s infinite alternate;
-  }
-  
-  &::after {
-    color: #00f0ff;
-    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    animation: glitchEffect 2s infinite alternate-reverse;
+    z-index: -1;
   }
 }
 
 @keyframes glitchEffect {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(-3px); }
-  40% { transform: translateX(3px); }
-  60% { transform: translateX(-3px); }
-  80% { transform: translateX(3px); }
-  100% { transform: translateX(0); }
-}
-
-/* Pestañas */
-.cyber-tabs {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  gap: 0.5rem;
-}
-
-.cyber-tab {
-  background: rgba(26, 26, 26, 0.7);
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: #e0e0e0;
-  padding: 0.5rem 1rem;
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  
-  &:hover {
-    color: #00f0ff;
-  }
-  
-  &.active {
-    color: #ff00f0;
-    border-bottom-color: #00f0ff;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #00f0ff, #ff00f0);
-      animation: tabGlow 2s infinite;
-    }
-  }
-}
-
-@keyframes tabGlow {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
 }
 
 /* Divisor */
@@ -134,13 +65,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   
   &-line {
     height: 1px;
     width: 30%;
-    background: linear-gradient(90deg, transparent, #00f0ff, transparent);
-    animation: dividerLine 3s infinite;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(0, 240, 255, 0.7), 
+      transparent);
   }
   
   &-dot {
@@ -149,20 +82,14 @@
     background-color: #ff00f0;
     margin: 0 15px;
     border-radius: 50%;
-    box-shadow: 0 0 10px #ff00f0;
-    animation: pulse 2s infinite alternate;
+    box-shadow: 0 0 15px #ff00f0;
+    animation: pulse 1.5s infinite alternate;
   }
 }
 
-@keyframes dividerLine {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
-
 @keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.2); }
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.2); opacity: 1; }
 }
 
 /* Grid principal */
@@ -170,6 +97,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Columna de logo */
@@ -192,79 +120,63 @@
 .cyber-logo-img {
   width: 100%;
   height: auto;
-  z-index: 2;
-  filter: drop-shadow(0 0 10px #00f0ff);
-  transform-style: preserve-3d;
-  animation: floatLogo 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.5));
+  transition: all 0.4s ease;
+  
+  &:hover {
+    filter: drop-shadow(0 0 25px rgba(255, 0, 240, 0.7));
+    transform: scale(1.03);
+  }
 }
 
 .cyber-hologram-effect {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: hologramPulse 4s infinite alternate;
-}
-
-.cyber-hologram-grid {
-  position: absolute;
-  width: 100%;
-  height: 100%;
   background: 
-    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+    radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%),
+    linear-gradient(to right, rgba(255, 0, 240, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 240, 0.1) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
   border-radius: 50%;
-  animation: rotateGrid 20s linear infinite;
-}
-
-@keyframes floatLogo {
-  0%, 100% { transform: translateY(0) rotateY(0deg); }
-  50% { transform: translateY(-10px) rotateY(10deg); }
+  animation: hologramPulse 5s infinite alternate;
 }
 
 @keyframes hologramPulse {
-  0% { opacity: 0.3; transform: scale(0.95); }
-  100% { opacity: 0.7; transform: scale(1.05); }
-}
-
-@keyframes rotateGrid {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { opacity: 0.4; transform: scale(0.98); }
+  100% { opacity: 0.7; transform: scale(1.02); }
 }
 
 /* Columna de contactos */
 .cyber-contact-column {
-  padding: 0 1rem;
+  padding: 0 0.5rem;
 }
 
 .cyber-contact-subtitle {
   font-family: 'Rajdhani', sans-serif;
   color: #e0e0e0;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: large;
   font-weight: 600;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  position: relative;
   
   .cyber-subtitle-inner {
     background: linear-gradient(90deg, #00f0ff, #ff00f0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
-    z-index: 1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 25%;
-    width: 50%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #00f0ff, #ff00f0, transparent);
+    padding: 0 0.5rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 25%;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00f0ff, #ff00f0, transparent);
+    }
   }
 }
 
@@ -277,24 +189,24 @@
 .cyber-contact-item {
   position: relative;
   padding: 1rem;
-  background-color: rgba(26, 26, 26, 0.7);
+  background-color: rgba(11, 88, 102, 0.192);
   border-left: 3px solid var(--item-color);
+  border-radius: 30px;
   display: flex;
   align-items: center;
   color: #e0e0e0;
   text-decoration: none;
-  font-family: 'Rajdhani', sans-serif;
   font-weight: 600;
   overflow: hidden;
   transition: all 0.3s ease;
   z-index: 1;
   
   &:hover {
-    background-color: rgba(38, 38, 38, 0.8);
+    background-color: rgba(30, 30, 40, 0.8);
     transform: translateX(5px);
     
     .cyber-item-glow {
-      opacity: 0.3;
+      opacity: 0.4;
     }
     
     .cyber-item-line {
@@ -309,12 +221,14 @@
   font-size: 1.3rem;
   min-width: 25px;
   text-align: center;
+  transition: all 0.3s ease;
 }
 
 .cyber-item-text {
   letter-spacing: 1px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   flex-grow: 1;
+  transition: all 0.3s ease;
 }
 
 .cyber-item-glow {
@@ -323,7 +237,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, 
+    rgba(0, 240, 255, 0.1) 0%, 
+    transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -339,6 +255,36 @@
   transition: width 0.3s ease 0.1s;
 }
 
+/* Divider entre secciones */
+.cyber-section-divider {
+  display: flex;
+  align-items: center;
+  margin: 3rem 0;
+  
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(0, 240, 255, 0.7), 
+      transparent
+    );
+  }
+}
+
+.cyber-divider-text {
+  padding: 0 1rem;
+  font-family: 'Fira Code', monospace;
+  color: #00f0ff;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 0.9rem;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
 /* Efecto scanlines */
 .cyber-scanlines {
   position: absolute;
@@ -348,12 +294,12 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(0, 240, 255, 0.03) 1px,
+    rgba(0, 240, 255, 0.05) 1px,
     transparent 1px
   );
-  background-size: 100% 5px;
+  background-size: 100% 8px;
   pointer-events: none;
-  animation: scanlineScroll 8s linear infinite;
+  animation: scanlineScroll 6s linear infinite;
   z-index: 0;
 }
 
@@ -364,6 +310,10 @@
 
 /* Breakpoints */
 @media (min-width: 768px) {
+  .cyber-contact-section {
+    padding: 3rem 2rem;
+  }
+  
   .cyber-contact-container {
     max-width: 700px;
     padding: 2rem;
@@ -371,6 +321,7 @@
   
   .cyber-contact-grid {
     flex-direction: row;
+    gap: 3rem;
   }
   
   .cyber-logo-column {
@@ -379,18 +330,17 @@
   
   .cyber-contact-column {
     flex: 1;
+    padding: 0 1rem;
   }
   
   .cyber-contact-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
   
-  .cyber-tabs {
-    gap: 1rem;
-  }
-  
-  .cyber-tab {
-    padding: 0.7rem 1.5rem;
+  .cyber-logo-hologram {
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -401,7 +351,7 @@
   }
   
   .cyber-contact-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   
   .cyber-logo-hologram {

@@ -4,33 +4,41 @@ import MusicaCancionCard from "./MusicaCancionCard";
 import { MusicaContexto } from "./MusicaContexto";
 
 function MusicaCancionesLista({
-  songs,
-  searchQuery,
-  selectedCategory,
-  setSelectedCategory,
+  songs = [],
+  searchQuery = "",
+  selectedCategory = "Todos",
+  setSelectedCategory = () => {},
 }) {
   const { addToCart } = useContext(MusicaContexto);
-  const categories = ["Todos", ...new Set(songs.map(song => song.categoria).filter(Boolean))];
+  const categories = ["Todos", ...new Set(songs.map(song => song?.categoria).filter(Boolean))];
+
+  // Filtrado seguro de canciones
+  const filteredSongs = songs.filter(song => {
+    if (!song) return false;
+    const matchesSearch = song.nombre?.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === "Todos" || song.categoria === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
-    <div className="music-archive">
-      <div className="archive-header">
-        <div className="archive-title-container">
-          <h2 className="archive-title">
-            <span className="title-gradient">DIGITAL</span>
-            <span className="title-outline">ARCHIVE</span>
+    <div className="cyberpunk-music-archive">
+      <div className="cyberpunk-archive-header">
+        <div className="cyberpunk-archive-title">
+          <h2 className="cyberpunk-archive-title-text">
+            <span className="cyberpunk-title-gradient">DIGITAL</span>
+            <span className="cyberpunk-title-outline">ARCHIVE</span>
           </h2>
-          <div className="archive-counter">
-            <span className="counter-value">{songs.length}</span>
-            <span className="counter-label">AUDIO FILES</span>
+          <div className="cyberpunk-archive-counter">
+            <span className="cyberpunk-counter-value">{filteredSongs.length}</span>
+            <span className="cyberpunk-counter-label">AUDIO FILES</span>
           </div>
         </div>
         
-        <div className="category-selector">
+        <div className="cyberpunk-category-selector">
           {categories.map(category => (
             <button
               key={category || 'all'}
-              className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+              className={`cyberpunk-category-btn ${selectedCategory === category ? 'cyberpunk-category-btn--active' : ''}`}
               onClick={() => setSelectedCategory(category)}
             >
               {(category || 'Todos').toUpperCase()}
@@ -39,21 +47,21 @@ function MusicaCancionesLista({
         </div>
       </div>
       
-      <div className="music-grid">
-        {songs.length > 0 ? (
-          songs.map((song) => (
+      <div className="cyberpunk-music-grid-compact">
+        {filteredSongs.length > 0 ? (
+          filteredSongs.map((song, index) => (
             <MusicaCancionCard
-              key={song.id}
+              key={song?.id || index}
               cancion={song}
               onAddToCart={addToCart}
             />
           ))
         ) : (
-          <div className="empty-state">
-            <div className="empty-icon">⎇</div>
-            <p>NO AUDIO FILES FOUND</p>
+          <div className="cyberpunk-empty-state">
+            <div className="cyberpunk-empty-icon">⎇</div>
+            <p className="cyberpunk-empty-text">NO AUDIO FILES FOUND</p>
             {searchQuery && (
-              <p className="empty-sub">
+              <p className="cyberpunk-empty-subtext">
                 No results for "{searchQuery}" in {selectedCategory}
               </p>
             )}
@@ -65,10 +73,17 @@ function MusicaCancionesLista({
 }
 
 MusicaCancionesLista.propTypes = {
-  songs: PropTypes.array.isRequired,
-  searchQuery: PropTypes.string.isRequired,
-  selectedCategory: PropTypes.string.isRequired,
-  setSelectedCategory: PropTypes.func.isRequired,
+  songs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    nombre: PropTypes.string,
+    artista: PropTypes.string,
+    duracion: PropTypes.string,
+    categoria: PropTypes.string,
+    imagen: PropTypes.string
+  })),
+  searchQuery: PropTypes.string,
+  selectedCategory: PropTypes.string,
+  setSelectedCategory: PropTypes.func,
 };
 
 export default MusicaCancionesLista;

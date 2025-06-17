@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 import Header from './componentes/Header';
 import MainContent from './componentes/MainContent';
 import Contacto from './componentes/Contacto';
-import ContactoFormularioSlider from './componentes/ContactoFormularioSlider';
 import PublicidadDebajo from './componentes/MainPublicidadSlider';
 import Footer from './componentes/Footer';
 import Tienda from './componentes/Tienda';
@@ -14,7 +13,7 @@ import Login from './componentes/SesionLogin';
 import Register from './componentes/SesionRegistrate';
 import Logout from './componentes/SesionLogout';
 import Musica from './componentes/Musica';
-import MainWhatsappIcon from './componentes/MainWhatsappIcon';
+import AWhatsappIcon from './componentes/AWhatsappIcon';
 import './assets/scss/estilo.scss';
 import "../src/assets/scss/_01-General/_App.scss";
 
@@ -106,49 +105,53 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <div className="cyber-container">
-            <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          <div className="cyber-divider"></div>
+        <div className="cyberpunk-app">
+          <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           
-          <Routes>
-            <Route path="/" element={<MainContent />} />
-            <Route path="/contacto" element={<><Contacto /><ContactoFormularioSlider /></>} />
-            <Route path="/tienda" element={
-              <Tienda 
-                setCart={setProductCart} 
-                cart={productCart} 
-                addToCart={addProductToCart} 
-                removeFromCart={removeProductFromCart} 
-                searchQuery={searchQuery} 
-                setSearchQuery={setSearchQuery} 
-              />} 
-            />
-            <Route path="/carrito" element={
-              <CarritoCompleto 
-                cart={productCart} 
-                removeFromCart={removeProductFromCart} 
-                handlePagar={handlePagar} 
-              />} 
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/musica" element={
-              <Musica 
-                setCart={setMusicCart} 
-                cart={musicCart} 
-                addToCart={addMusicToCart} 
-                removeFromCart={removeMusicFromCart} 
-                searchQuery={searchQuery} 
-                setSearchQuery={setSearchQuery} 
-              />} 
-            />
-          </Routes>
-          
-          <div className="cyber-divider"></div>
-          <PublicidadDebajo />
+          <div className="cyberpunk-content">
+        
+            <Routes>
+              <Route path="/" element={<MainContent />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/tienda" element={
+                <Tienda 
+                  setCart={setProductCart} 
+                  cart={productCart} 
+                  addToCart={addProductToCart} 
+                  removeFromCart={removeProductFromCart} 
+                  searchQuery={searchQuery} 
+                  setSearchQuery={setSearchQuery} 
+                />} 
+              />
+              <Route path="/carrito" element={
+                <CarritoCompleto 
+                  cart={productCart} 
+                  removeFromCart={removeProductFromCart} 
+                  handlePagar={handlePagar} 
+                />} 
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/musica" element={
+                <Musica 
+                  setCart={setMusicCart} 
+                  cart={musicCart} 
+                  addToCart={addMusicToCart} 
+                  removeFromCart={removeMusicFromCart} 
+                  searchQuery={searchQuery} 
+                  setSearchQuery={setSearchQuery} 
+                />} 
+              />
+            </Routes>
+            
+            <div className="cyberpunk-divider"></div>
+            <PublicidadDebajo />
+          </div>
+          {/* <div className="cyberpunk-divider"></div> */}
+            
           <Footer />
-          <MainWhatsappIcon />
+          <AWhatsappIcon />
         </div>
       </AuthProvider>
     </Router>

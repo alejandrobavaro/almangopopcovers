@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import ContactoFormularioSlider from "./ContactoFormularioSlider";
+import ContactoProfesional from "./ContactoProfesional";
 import "../assets/scss/_03-Componentes/_Contacto.scss";
 
 const Contacto = () => {
-  const [activeTab, setActiveTab] = useState("redes");
   const navigate = useNavigate();
 
   const contactItems = [
@@ -51,76 +50,66 @@ const Contacto = () => {
       <div className="cyber-contact-container">
         <div className="cyber-border-glow"></div>
         
-        <h1 className="cyber-contact-title" data-text="CONÉCTATE_CON_ALMANGO">
-          CONÉCTATE_CON_ALMANGO
+        <h1 className="cyber-contact-title" >
+          CONTACTO
         </h1>
         
-        <div className="cyber-tabs">
-          <button 
-            className={`cyber-tab ${activeTab === "redes" ? "active" : ""}`}
-            onClick={() => setActiveTab("redes")}
-          >
-            REDES_SOCIALES
-          </button>
-          <button 
-            className={`cyber-tab ${activeTab === "formulario" ? "active" : ""}`}
-            onClick={() => setActiveTab("formulario")}
-          >
-            ENVIAR_MENSAJE
-          </button>
-        </div>
-
         <div className="cyber-divider">
           <div className="cyber-divider-line"></div>
           <div className="cyber-divider-dot"></div>
           <div className="cyber-divider-line"></div>
         </div>
 
-        {activeTab === "redes" ? (
-          <div className="cyber-contact-grid">
-            <div className="cyber-logo-column">
-              <div className="cyber-logo-hologram">
-                <img
-                  src="/img/04-img-banners/banner4.png"
-                  alt="Almango Pop Covers"
-                  className="cyber-logo-img"
-                  onError={(e) => {
-                    e.target.src = '/img/04-img-banners/banner4.png';
-                  }}
-                />
-                <div className="cyber-hologram-effect"></div>
-              </div>
-            </div>
-
-            <div className="cyber-contact-column">
-              <h2 className="cyber-contact-subtitle">
-                <span className="cyber-subtitle-inner">CANALES_DE_COMUNICACIÓN</span>
-              </h2>
-              
-              <div className="cyber-contact-items">
-                {contactItems.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cyber-contact-item"
-                    style={{ "--item-color": item.color }}
-                  >
-                    <div className="cyber-item-icon">
-                      <i className={item.icon} />
-                    </div>
-                    <span className="cyber-item-text">{item.text}</span>
-                    <div className="cyber-item-glow"></div>
-                    <div className="cyber-item-line"></div>
-                  </a>
-                ))}
-              </div>
+        {/* Sección de redes sociales */}
+        <div className="cyber-contact-grid">
+          <div className="cyber-logo-column">
+            <div className="cyber-logo-hologram">
+              <img
+                src="/img/04-img-banners/banner4.png"
+                alt="Almango Pop Covers"
+                className="cyber-logo-img"
+                onError={(e) => {
+                  e.target.src = '/img/04-img-banners/banner4.png';
+                }}
+              />
+              <div className="cyber-hologram-effect"></div>
             </div>
           </div>
-        ) : (
-          <ContactoFormularioSlider />
-        )}
+
+          <div className="cyber-contact-column">
+            <h2 className="cyber-contact-subtitle">
+              <span className="cyber-subtitle-inner">CANALES DE COMUNICACIÓN</span>
+            </h2>
+            
+            <div className="cyber-contact-items">
+              {contactItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cyber-contact-item"
+                  style={{ "--item-color": item.color }}
+                >
+                  <div className="cyber-item-icon">
+                    <i className={item.icon} />
+                  </div>
+                  <span className="cyber-item-text">{item.text}</span>
+                  <div className="cyber-item-glow"></div>
+                  <div className="cyber-item-line"></div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider entre secciones */}
+        <div className="cyber-section-divider">
+          <span className="cyber-divider-text">FORMULARIO PROFESIONAL</span>
+        </div>
+
+        {/* Formulario de contacto profesional */}
+        <ContactoProfesional />
 
         <div className="cyber-scanlines"></div>
       </div>

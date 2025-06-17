@@ -8,23 +8,21 @@ const MainPublicidadSlider = () => {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     const fetchProductos = async () => {
       try {
         const response = await fetch("/productos.json");
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`Error HTTP! estado: ${response.status}`);
         }
-        const productos = await response.json();
-        
-        // Mostramos solo productos destacados
-        const productosDestacados = productos.filter(producto => producto.destacado);
-        
+        const data = await response.json();
+        const productosDestacados = data.filter(producto => producto.destacado);
         setProductos(productosDestacados);
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
-        setError(error.message);
+      } catch (err) {
+        console.error("Error al cargar productos:", err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
@@ -33,50 +31,26 @@ const MainPublicidadSlider = () => {
     fetchProductos();
   }, []);
 
-  // Configuración del slider responsive
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    speed: 800,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
     arrows: true,
-    nextArrow: <CyberNextArrow />,
-    prevArrow: <CyberPrevArrow />,
     fade: true,
-    cssEase: 'cubic-bezier(0.77, 0, 0.175, 1)',
+    beforeChange: (current, next) => setActiveSlide(next),
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          arrows: false,
-          dots: true
+          arrows: false
         }
       }
     ]
   };
-
-  function CyberNextArrow(props) {
-    const { onClick } = props;
-    return (
-      <div className="cyber-arrow cyber-next" onClick={onClick} aria-label="Next slide">
-        <div className="cyber-arrow-core"></div>
-        <span>⏵</span>
-      </div>
-    );
-  }
-
-  function CyberPrevArrow(props) {
-    const { onClick } = props;
-    return (
-      <div className="cyber-arrow cyber-prev" onClick={onClick} aria-label="Previous slide">
-        <div className="cyber-arrow-core"></div>
-        <span>⏴</span>
-      </div>
-    );
-  }
 
   const handleImageError = (e) => {
     e.target.src = '/img/placeholder-product.jpg';
@@ -85,98 +59,91 @@ const MainPublicidadSlider = () => {
 
   if (loading) {
     return (
-      <div className="cyber-publicidad-container">
-        <div className="cyber-loading">
-          <div className="cyber-spinner"></div>
-          <p>CARGANDO PRODUCTOS...</p>
-        </div>
+      <div className="publicidad-loading">
+        <div className="loading-spinner"></div>
+        <p>CARGANDO PRODUCTOS DESTACADOS...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="cyber-publicidad-container">
-        <div className="cyber-error">
-          <p>ERROR AL CARGAR LOS PRODUCTOS: {error}</p>
-        </div>
+      <div className="publicidad-error">
+        <p>ERROR AL CARGAR PRODUCTOS</p>
+        <p className="error-detail">{error}</p>
       </div>
     );
   }
 
   if (productos.length === 0) {
     return (
-      <div className="cyber-publicidad-container">
-        <div className="cyber-empty">
-          <p>EXPLORA NUESTROS PRODUCTOS PRÓXIMAMENTE</p>
-        </div>
+      <div className="publicidad-empty">
+        <p>NO HAY PRODUCTOS DESTACADOS DISPONIBLES</p>
       </div>
     );
   }
 
   return (
-    <div className="cyber-publicidad-container">
-      <div className="cyber-scan-bar"></div>
-      
-      <div className="cyber-slider-wrapper">
-        <h2 className="cyber-section-title">
-          <span className="cyber-title-badge">
-            PRODUCTOS DESTACADOS
-          </span>
-        </h2>
-        
-        <div className="cyber-main-slider">
-          <Slider {...settings}>
-            {productos.map((producto) => (
-              <div key={producto.id} className="cyber-slide">
-                <div className="cyber-slide-content">
-                  <div className="cyber-slide-hologram">
-                    <img
-                      src={producto.imagenes[0]}
-                      alt={producto.nombre}
-                      className="cyber-slide-image"
-                      onError={handleImageError}
-                      loading="lazy"
-                    />
-                    <div className="cyber-slide-glitch"></div>
-                  </div>
-                  <div className="cyber-price-tag">
-                    <span className="cyber-price-currency">$</span>
-                    <span className="cyber-price-value">
-                      {new Intl.NumberFormat('es-AR').format(producto.precio)}
-                    </span>
-                  </div>
-                  <div className="cyber-product-info">
-                    <h3 className="cyber-product-name">{producto.nombre}</h3>
-                    <p className="cyber-product-code">ID: {producto.id}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
+    <section className="publicidad-container">
+      <div className="publicidad-header">
+        <h2 className="section-title">PRODUCTOS DESTACADOS</h2>
+        <div className="slider-indicator">
+          {activeSlide + 1} / {productos.length}
         </div>
+      </div>
 
-        <h3 className="cyber-thumbnails-title">MÁS PRODUCTOS</h3>
-        <div className="cyber-thumbnails-grid">
+      <div className="main-slider-container">
+        <Slider {...settings}>
           {productos.map((producto) => (
-            <div key={producto.id} className="cyber-thumbnail">
-              <div className="cyber-thumbnail-frame">
+            <div key={producto.id} className="product-slide">
+              <div className="slide-image-container">
                 <img
                   src={producto.imagenes[0]}
                   alt={producto.nombre}
-                  className="cyber-thumbnail-image"
+                  className="product-image"
                   onError={handleImageError}
                   loading="lazy"
                 />
               </div>
-              <div className="cyber-thumbnail-id">[{producto.id}]</div>
+              
+              <div className="product-info">
+                <h3 className="product-name">{producto.nombre}</h3>
+                <p className="product-description">{producto.descripcion}</p>
+                
+                <div className="product-meta">
+                  <span className="product-price">
+                    ${new Intl.NumberFormat('es-AR').format(producto.precio)}
+                  </span>
+                  <span className="product-id">ID: {producto.id}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </div>
+
+      <div className="thumbnails-container">
+        <h3 className="thumbnails-title">EXPLORAR MÁS PRODUCTOS</h3>
+        <div className="thumbnails-grid">
+          {productos.map((producto, index) => (
+            <div 
+              key={producto.id} 
+              className={`thumbnail-item ${index === activeSlide ? 'active' : ''}`}
+              onClick={() => setActiveSlide(index)}
+            >
+              <img
+                src={producto.imagenes[0]}
+                alt={producto.nombre}
+                className="thumbnail-image"
+                onError={handleImageError}
+                loading="lazy"
+              />
+              <span className="thumbnail-label">{producto.nombre.substring(0, 15)}...</span>
             </div>
           ))}
         </div>
       </div>
-      
-      <div className="cyber-scan-bar"></div>
-    </div>
+    </section>
   );
 };
 

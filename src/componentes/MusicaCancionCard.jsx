@@ -12,53 +12,41 @@ function MusicaCancionCard({ cancion, onAddToCart }) {
   };
 
   return (
-    <div className="music-card">
-      <div className="status-bar"></div>
-      
-      <div className="card-content">
-        <div className="album-hologram">
+    <div className="cyberpunk-music-card-compact">
+      <div className="cyberpunk-card-content-compact">
+        <div className="cyberpunk-album-compact">
           <img 
             src={cancion.imagen} 
             alt={cancion.nombre} 
-            className="album-image"
+            className="cyberpunk-album-image-compact"
             onError={(e) => e.target.src = '/img/default-album.png'}
           />
-          <div className="glitch-effect"></div>
         </div>
         
-        <div className="song-info">
-          <div className="info-line">
-            <span className="label">TRACK:</span> 
-            <span className="value">{cancion.nombre}</span>
+        <div className="cyberpunk-song-info-compact">
+          <div className="cyberpunk-info-line-compact">
+            <span className="cyberpunk-info-value-compact">{cancion.nombre}</span>
           </div>
-          <div className="info-line">
-            <span className="label">ARTIST:</span> 
-            <span className="value">{cancion.artista}</span>
-          </div>
-          <div className="info-line">
-            <span className="label">GENRE:</span> 
-            <span className="genre-tag">{cancion.categoria}</span>
-          </div>
-          <div className="info-line">
-            <span className="label">DURATION:</span> 
-            <span className="value">{cancion.duracion}</span>
+          <div className="cyberpunk-info-line-compact">
+            <span className="cyberpunk-info-artist-compact">{cancion.artista}</span>
           </div>
         </div>
         
-        <button 
-          onClick={handleAddToCart} 
-          className="add-button"
-          aria-label="Add to playlist"
-        >
-          {added ? (
-            <CheckCircleFill className="add-icon added" />
-          ) : (
-            <PlusCircle className="add-icon" />
-          )}
-        </button>
+        <div className="cyberpunk-song-meta-compact">
+          <span className="cyberpunk-song-duration-compact">{cancion.duracion}</span>
+          <button 
+            onClick={handleAddToCart} 
+            className="cyberpunk-add-button-compact"
+            aria-label="Add to playlist"
+          >
+            {added ? (
+              <CheckCircleFill className="cyberpunk-add-icon-compact cyberpunk-add-icon--active" />
+            ) : (
+              <PlusCircle className="cyberpunk-add-icon-compact" />
+            )}
+          </button>
+        </div>
       </div>
-      
-      <div className="song-id">ID: {cancion.id}</div>
     </div>
   );
 }

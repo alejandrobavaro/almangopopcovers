@@ -4,7 +4,7 @@ import MusicaCancionesLista from "./MusicaCancionesLista";
 import MusicaReproductor from "./MusicaReproductor";
 import '../assets/scss/_03-Componentes/_Musica.scss';
 
-function Musica({ searchQuery }) {
+function Musica({ searchQuery, setSearchQuery, setCart, cart, addToCart, removeFromCart }) {
   const [songs, setSongs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [loading, setLoading] = useState(true);
@@ -36,27 +36,28 @@ function Musica({ searchQuery }) {
   );
 
   if (loading) return (
-    <div className="loading-screen">
-      <div className="loading-spinner"></div>
-      <p>LOADING AUDIO DATA...</p>
+    <div className="cyberpunk-music-loading">
+      <div className="cyberpunk-spinner"></div>
+      <p className="cyberpunk-loading-text">CARGANDO DATOS AUDIO...</p>
     </div>
   );
 
   if (error) return (
-    <div className="error-screen">
-      <p>SYSTEM ERROR: FAILED TO LOAD AUDIO DATA</p>
-      <p className="error-detail">{error}</p>
+    <div className="cyberpunk-music-error">
+      <p className="cyberpunk-error-main">ERROR DE SISTEMA</p>
+      <p className="cyberpunk-error-detail">Fallo al cargar datos de audio: {error}</p>
     </div>
   );
 
   return (
     <MusicaProvider>
-      <div className="music-app">
+      <div className="cyberpunk-music-container">
         <MusicaCancionesLista
           songs={filteredSongs}
           searchQuery={searchQuery}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          addToCart={addToCart}
         />
         <MusicaReproductor />
       </div>

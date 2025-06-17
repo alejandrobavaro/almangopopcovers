@@ -136,10 +136,7 @@ function Tienda({ cart, setCart, addToCart, removeFromCart, searchQuery, setSear
       {/* Efecto de humo de concierto */}
       <div className="smoke-effect"></div>
       
-      {/* Botón para activar el modo concierto */}
-      <button className="concert-mode-toggle" onClick={toggleConcertMode}>
-        {concertMode ? 'EXIT SHOW' : 'LIVE SHOW MODE'}
-      </button>
+   
       
       <div className="concert-tienda-content">
         <ProductosTienda

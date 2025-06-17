@@ -9,21 +9,20 @@ function Footer() {
 
       <div className="cyber-footer-content">
         {/* Logo izquierdo */}
-        <div className="cyber-logo-container">
+        <div className="cyber-logo-container cyber-logo-left">
           <div className="cyber-vinyl">
             <img 
               src="/img/02-logos/logo2.png" 
               alt="Logo izquierdo" 
               className="cyber-vinyl-image"
             />
-   
           </div>
         </div>
 
         {/* Redes sociales */}
         <div className="cyber-social-section">
           <h3 className="cyber-social-title">
-          <span className="cyber-prompt"><span className="cyber-flicker">✧</span> CONÉCTATE CON NOSOTROS <span className="cyber-flicker">✧</span> </span>  
+            <span className="cyber-prompt"><span className="cyber-flicker">✧</span> CONÉCTATE CON NOSOTROS <span className="cyber-flicker">✧</span></span>  
           </h3>
           <div className="cyber-social-buttons">
             <a href="https://www.instagram.com/almangopopmusic" target="_blank" rel="noopener noreferrer" className="cyber-social-btn">
@@ -42,14 +41,13 @@ function Footer() {
         </div>
 
         {/* Logo derecho */}
-        <div className="cyber-logo-container">
+        <div className="cyber-logo-container cyber-logo-right">
           <div className="cyber-vinyl">
             <img 
               src="/img/02-logos/logo2.png" 
               alt="Logo derecho" 
               className="cyber-vinyl-image"
             />
-          
           </div>
         </div>
       </div>
