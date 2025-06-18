@@ -2,29 +2,29 @@
     {
       "id": 1,
       "nombre": "Ale Gondra",
-      "rol": "Voz líder/Guitarra",
-      "bio": "Fundador de la banda con más de 15 años de experiencia en escenarios internacionales.",
-      "imagen": "/img/integrantes/ale.jpg"
+      "rol": "Voz líder/Guitarra/Coros/Producción",
+      "bio": "inventar texto.",
+            "imagen": "/img/integrantes/integrante1a.jpg"
     },
     {
       "id": 2,
-      "nombre": "Mati López",
-      "rol": "Batería",
-      "bio": "Especialista en ritmos pop/rock con formación clásica en percusión.",
-      "imagen": "/img/integrantes/mati.jpg"
+      "nombre": "Pato Conti",
+      "rol": "Voz líder/Teclados/Coros",
+       "bio": "inventar texto.",
+  "imagen": "/img/integrantes/integrante2a.jpg"
     },
     {
       "id": 3,
-      "nombre": "Julián Ríos",
-      "rol": "Bajo",
-      "bio": "Groove sólido y presencia escénica que da el soporte perfecto a la banda.",
-      "imagen": "/img/integrantes/julian.jpg"
+      "nombre": "Nicolas Traffi",
+      "rol": "Bajo/Coros",
+      "bio": "inventar texto.",
+  "imagen": "/img/integrantes/integrante3a.jpg"
     },
     {
       "id": 4,
-      "nombre": "Luciana Nieva",
-      "rol": "Teclados/Coros",
-      "bio": "Multiinstrumentista con oído absoluto y arreglista vocal.",
-      "imagen": "/img/integrantes/luciana.jpg"
+      "nombre": "Santi Sottille",
+      "rol": "Batería",
+      "bio": "inventar texto.",
+  "imagen": "/img/integrantes/integrante4a.jpg"
     }
   ]

@@ -4,9 +4,9 @@
     "nombre": "Remera Limited Edition - Almango Pop Covers",
     "precio": 25000,
     "imagenes": [
-      "public/img/06-tienda/tienda1-a.png",
-      "public/img/06-tienda/tienda1-b.png",
-      "public/img/06-tienda/tienda1-c.png"
+      "/img/06-tienda/tienda1-a.png",
+      "/img/06-tienda/tienda1-b.png",
+      "/img/06-tienda/tienda1-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Remera oficial de la banda con diseño exclusivo. 100% algodón, edición limitada con numeración serigrafiada.",
@@ -18,9 +18,9 @@
     "nombre": "Pack VIP Experience - Show Completo",
     "precio": 150000,
     "imagenes": [
-      "public/img/06-tienda/tienda2-a.png",
-      "public/img/06-tienda/tienda2-b.png",
-      "public/img/06-tienda/tienda2-c.png"
+      "/img/06-tienda/tienda2-a.png",
+      "/img/06-tienda/tienda2-b.png",
+      "/img/06-tienda/tienda2-c.png"
     ],
     "categoria": "experiencias",
     "descripcion": "Incluye: Entrada premium, acceso a soundcheck, meet & greet con la banda, merchandising exclusivo y foto grupal.",
@@ -32,9 +32,9 @@
     "nombre": "Entrada General - Show Retro 80s",
     "precio": 80000,
     "imagenes": [
-      "public/img/06-tienda/tienda3-a.png",
-      "public/img/06-tienda/tienda3-b.png",
-      "public/img/06-tienda/tienda3-c.png"
+      "/img/06-tienda/tienda3-a.png",
+      "/img/06-tienda/tienda3-b.png",
+      "/img/06-tienda/tienda3-c.png"
     ],
     "categoria": "entradas",
     "descripcion": "Entrada para nuestro espectáculo temático de los 80s. Duración: 3 horas con dos intervalos.",
@@ -46,9 +46,9 @@
     "nombre": "Vinilo Firmado - Greatest Hits Live",
     "precio": 45000,
     "imagenes": [
-      "public/img/06-tienda/tienda4-a.png",
-      "public/img/06-tienda/tienda4-b.png",
-      "public/img/06-tienda/tienda4-c.png"
+      "/img/06-tienda/tienda4-a.png",
+      "/img/06-tienda/tienda4-b.png",
+      "/img/06-tienda/tienda4-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Edición limitada en vinilo de 180g con las mejores versiones en vivo. Incluye fotos exclusivas y firmas de todos los miembros.",
@@ -60,9 +60,9 @@
     "nombre": "Pack Familiar (4 entradas) - Show 90s",
     "precio": 240000,
     "imagenes": [
-      "public/img/06-tienda/tienda5-a.png",
-      "public/img/06-tienda/tienda5-b.png",
-      "public/img/06-tienda/tienda5-c.png"
+      "/img/06-tienda/tienda5-a.png",
+      "/img/06-tienda/tienda5-b.png",
+      "/img/06-tienda/tienda5-c.png"
     ],
     "categoria": "entradas",
     "descripcion": "Ahorra un 25% comprando este pack familiar para nuestro show temático de los 90s. Zona preferencial.",
@@ -74,9 +74,9 @@
     "nombre": "Gorra Oficial - Almango Pop",
     "precio": 18000,
     "imagenes": [
-      "public/img/06-tienda/tienda6-a.png",
-      "public/img/06-tienda/tienda6-b.png",
-      "public/img/06-tienda/tienda6-c.png"
+      "/img/06-tienda/tienda6-a.png",
+      "/img/06-tienda/tienda6-b.png",
+      "/img/06-tienda/tienda6-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Gorra trucker ajustable con logo bordado. Diseño retro futurista disponible en 3 colores.",
@@ -88,9 +88,9 @@
     "nombre": "Clase Magistral con los Músicos",
     "precio": 120000,
     "imagenes": [
-      "public/img/06-tienda/tienda7-a.png",
-      "public/img/06-tienda/tienda7-b.png",
-      "public/img/06-tienda/tienda7-c.png"
+      "/img/06-tienda/tienda7-a.png",
+      "/img/06-tienda/tienda7-b.png",
+      "/img/06-tienda/tienda7-c.png"
     ],
     "categoria": "experiencias",
     "descripcion": "Sesión de 3 horas donde los miembros de la banda enseñan sus técnicas para recrear los clásicos. Incluye material didáctico.",
@@ -102,9 +102,9 @@
     "nombre": "CD + Remera Combo Pack",
     "precio": 35000,
     "imagenes": [
-      "public/img/06-tienda/tienda8-a.png",
-      "public/img/06-tienda/tienda8-b.png",
-      "public/img/06-tienda/tienda8-c.png"
+      "/img/06-tienda/tienda8-a.png",
+      "/img/06-tienda/tienda8-b.png",
+      "/img/06-tienda/tienda8-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Ahorra comprando este combo que incluye nuestro último CD en vivo + remera básica de la banda.",
@@ -116,9 +116,9 @@
     "nombre": "Entrada Doble + Cena - Show Romántico",
     "precio": 210000,
     "imagenes": [
-      "public/img/06-tienda/tienda9-a.png",
-      "public/img/06-tienda/tienda9-b.png",
-      "public/img/06-tienda/tienda9-c.png"
+      "/img/06-tienda/tienda9-a.png",
+      "/img/06-tienda/tienda9-b.png",
+      "/img/06-tienda/tienda9-c.png"
     ],
     "categoria": "entradas",
     "descripcion": "Experiencia completa: 2 entradas en zona VIP + cena de 3 pasos en restaurante asociado + brindis.",
@@ -130,9 +130,9 @@
     "nombre": "Taza Termica - Almango Pop",
     "precio": 15000,
     "imagenes": [
-      "public/img/06-tienda/tienda10-a.png",
-      "public/img/06-tienda/tienda10-b.png",
-      "public/img/06-tienda/tienda10-c.png"
+      "/img/06-tienda/tienda10-a.png",
+      "/img/06-tienda/tienda10-b.png",
+      "/img/06-tienda/tienda10-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Taza térmica de acero inoxidable con diseño exclusivo. Mantiene la temperatura por 12 horas.",
@@ -143,9 +143,9 @@
     "nombre": "Experiencia de Ensayo Privado",
     "precio": 300000,
     "imagenes": [
-      "public/img/06-tienda/tienda11-a.png",
-      "public/img/06-tienda/tienda11-b.png",
-      "public/img/06-tienda/tienda11-c.png"
+      "/img/06-tienda/tienda11-a.png",
+      "/img/06-tienda/tienda11-b.png",
+      "/img/06-tienda/tienda11-c.png"
     ],
     "categoria": "experiencias",
     "descripcion": "Asiste a un ensayo privado de la banda, participa en el proceso creativo y disfruta de un repertorio exclusivo.",
@@ -157,9 +157,9 @@
     "nombre": "Entrada General + CD - Show Especial Queen",
     "precio": 110000,
     "imagenes": [
-      "public/img/06-tienda/tienda12-a.png",
-      "public/img/06-tienda/tienda12-b.png",
-      "public/img/06-tienda/tienda12-c.png"
+      "/img/06-tienda/tienda12-a.png",
+      "/img/06-tienda/tienda12-b.png",
+      "/img/06-tienda/tienda12-c.png"
     ],
     "categoria": "paquetes",
     "descripcion": "Entrada para nuestro tributo a Queen + CD especial con versiones exclusivas no disponibles en otros formatos.",
@@ -171,9 +171,9 @@
     "nombre": "Póster Autografiado - Edición Coleccionista",
     "precio": 22000,
     "imagenes": [
-      "public/img/06-tienda/tienda13-a.png",
-      "public/img/06-tienda/tienda13-b.png",
-      "public/img/06-tienda/tienda13-c.png"
+      "/img/06-tienda/tienda13-a.png",
+      "/img/06-tienda/tienda13-b.png",
+      "/img/06-tienda/tienda13-c.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Póster en papel premium 60x90cm con diseño exclusivo, firmado por todos los miembros. Numerado.",
@@ -185,9 +185,9 @@
     "nombre": "Pack Grupo (6 entradas) - Show 70s Disco",
     "precio": 360000,
     "imagenes": [
-      "public/img/06-tienda/tienda14-a.png",
-      "public/img/06-tienda/tienda14-b.png",
-      "public/img/06-tienda/tienda14-c.png"
+      "/img/06-tienda/tienda14-a.png",
+      "/img/06-tienda/tienda14-b.png",
+      "/img/06-tienda/tienda14-c.png"
     ],
     "categoria": "entradas",
     "descripcion": "Ahorra un 30% comprando este pack grupal para nuestro show disco de los 70s. Incluye mesa reservada.",
@@ -199,9 +199,9 @@
     "nombre": "Sesión Fotográfica con la Banda",
     "precio": 180000,
     "imagenes": [
-      "public/img/06-tienda/tienda15-a.png",
-      "public/img/06-tienda/tienda15-b.png",
-      "public/img/06-tienda/tienda15-c.png"
+      "/img/06-tienda/tienda15-a.png",
+      "/img/06-tienda/tienda15-b.png",
+      "/img/06-tienda/tienda15-c.png"
     ],
     "categoria": "experiencias",
     "descripcion": "Sesión privada de 1 hora con fotógrafo profesional. Incluye 5 fotos editadas digitales y 1 impresa en formato poster.",
@@ -213,10 +213,10 @@
     "nombre": "Pack Aniversario - 5 Años de Almango",
     "precio": 50000,
     "imagenes": [
-      "public/img/06-tienda/tienda16-a.png",
-      "public/img/06-tienda/tienda16-b.png",
-      "public/img/06-tienda/tienda16-c.png",
-      "public/img/06-tienda/tienda16-d.png"
+      "/img/06-tienda/tienda16-a.png",
+      "/img/06-tienda/tienda16-b.png",
+      "/img/06-tienda/tienda16-c.png",
+      "/img/06-tienda/tienda16-d.png"
     ],
     "categoria": "merchandising",
     "descripcion": "Edición especial de aniversario incluye: CD recopilatorio, póster, stickers y pin exclusivo.",
