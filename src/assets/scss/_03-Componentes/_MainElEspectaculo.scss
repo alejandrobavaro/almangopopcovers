@@ -1,81 +1,187 @@
 /* -------------------------------------------- */
-/* SHOW - MEJORADO */
+/* ESPECTÁCULO - VERSIÓN CYBERPUNK */
 /* -------------------------------------------- */
 
-.show {
-  padding: 2rem 1rem;
-  max-width: 412px;
+.cyber-seccion-espectaculo {
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #1a1a4a 0%, #0a0a28 100%);
+  max-width: 1400px;
   margin: 0 auto;
+}
 
-  &__container {
-    background: rgba(10, 10, 40, 0.8);
-    border-radius: 20px;
-    border: 2px solid #00f0ff;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-    overflow: hidden;
-    padding: 1.5rem;
-  }
+.cyber-encabezado-seccion {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
 
-  &__header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  &__title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.2rem;
-    color: #00f0ff;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-  }
-
-  &__divider {
-    height: 2px;
-    width: 100px;
-    background: linear-gradient(90deg, #00f0ff, #ff00f0);
-    margin: 0 auto;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  &__text {
-    order: 2;
-  }
-
-  &__paragraph {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: #e0e0e0;
-  }
-
-  &__song {
-    color: #ff00f0;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 0 0 8px rgba(255, 0, 240, 0.3);
-  }
-
-  &__image {
-    order: 1;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 3px solid rgba(0, 240, 255, 0.5);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-    transition: all 0.5s ease;
-  }
-
-  &__img {
+.cyber-titulo-seccion {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: #00f0ff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.7);
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00f0ff, #ff00f0, transparent);
+  }
+}
+
+.cyber-divisor-seccion {
+  height: 1px;
+  width: 80%;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.5), transparent);
+}
+
+.cyber-contenido-espectaculo {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.cyber-parrafo-espectaculo {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+.cyber-destacado {
+  color: #ff00f0;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 240, 0.5);
+}
+
+.cyber-playlist-container {
+  background: rgba(10, 10, 40, 0.6);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.cyber-playlist-titulo {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.cyber-playlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.cyber-track {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background: rgba(30, 30, 70, 0.5);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(0, 240, 255, 0.1);
+    transform: translateX(5px);
+  }
+}
+
+.cyber-track-destacado {
+  border-left: 3px solid #ff00f0;
+  background: rgba(255, 0, 240, 0.1);
+  
+  .cyber-track-name {
+    color: #ff00f0;
+  }
+}
+
+.cyber-track-number {
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  width: 20px;
+}
+
+.cyber-track-name {
+  flex-grow: 1;
+  padding: 0 1rem;
+  color: #e0e0e0;
+}
+
+.cyber-track-duration {
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+}
+
+.cyber-tech-specs {
+  background: rgba(10, 10, 40, 0.6);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.cyber-tech-titulo {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.cyber-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.cyber-tech-category {
+  h4 {
+    color: #ff00f0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    padding-bottom: 0.5rem;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    
+    &::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #00f0ff;
+    }
   }
 }
 
@@ -84,44 +190,15 @@
 /* -------------------------------------------- */
 
 @media (min-width: 768px) {
-  .show {
-    max-width: 720px;
-
-    &__container {
-      padding: 2rem;
-    }
-
-    &__content {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    &__text {
-      flex: 1;
-      order: 1;
-    }
-
-    &__image {
-      flex: 1;
-      order: 2;
-    }
-
-    &__paragraph {
-      font-size: 1.2rem;
-    }
+  .cyber-seccion-espectaculo {
+    padding: 4rem 2rem;
   }
-}
-
-@media (min-width: 1024px) {
-  .show {
-    max-width: 960px;
-
-    &__image:hover {
-      border-color: rgba(255, 0, 240, 0.5);
-      
-      .show__img {
-        transform: scale(1.05);
-      }
-    }
+  
+  .cyber-titulo-seccion {
+    font-size: 3rem;
+  }
+  
+  .cyber-playlist {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }

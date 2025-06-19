@@ -104,9 +104,7 @@ const MainContent = () => {
         eslogan={datos.infoBanda.eslogan} 
       />
       
-      <section className="cyberpunk-section">
-        <MainIntegrantes integrantes={datos.integrantes} />
-      </section>
+  
       
       <section className="cyberpunk-section cyberpunk-section--alt">
         <MainElEspectaculo descripcionCreativa={datos.descripcionCreativa} />
@@ -130,6 +128,10 @@ const MainContent = () => {
       
       <section className="cyberpunk-section">
         <ContactoProfesional />
+      </section>
+
+      <section className="cyberpunk-section">
+        <MainIntegrantes integrantes={datos.integrantes} />
       </section>
     </main>
   );

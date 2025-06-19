@@ -1,108 +1,256 @@
 /* -------------------------------------------- */
-/* ABOUT - MEJORADO */
+/* ABOUT - VERSIÓN MEJORADA */
 /* -------------------------------------------- */
 
 .about {
-  padding: 2rem 1rem;
-  max-width: 412px;
+  padding: 3rem 1rem;
+  background: linear-gradient(to bottom, #0a0a28 0%, #1a1a4a 100%);
+  max-width: 1400px;
   margin: 0 auto;
+}
 
-  &__container {
-    background: rgba(10, 10, 40, 0.8);
-    border-radius: 20px;
-    border: 2px solid #00f0ff;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-    overflow: hidden;
-    padding: 1.5rem;
-  }
+.about__container {
+  background: rgba(10, 10, 40, 0.8);
+  border-radius: 20px;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+  overflow: hidden;
+  padding: 2rem;
+}
 
-  &__header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
+.about__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
 
-  &__title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.2rem;
-    color: #00f0ff;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-  }
+.about__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  color: #00f0ff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.7);
+}
 
-  &__divider {
-    height: 2px;
-    width: 100px;
-    background: linear-gradient(90deg, #00f0ff, #ff00f0);
-    margin: 0 auto;
-  }
+.about__divider {
+  height: 2px;
+  width: 100px;
+  background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  margin: 1rem auto;
+}
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+.about__subtitle {
+  color: #ff00f0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  text-shadow: 0 0 8px rgba(255, 0, 240, 0.3);
+}
 
-  &__image {
-    border-radius: 15px;
-    overflow: hidden;
-    border: 3px solid rgba(0, 240, 255, 0.5);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-  }
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
 
-  &__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: grayscale(20%) contrast(110%);
-  }
+.about__image {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 3px solid rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+  transition: all 0.5s ease;
+}
 
-  &__description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #e0e0e0;
-    margin-bottom: 2rem;
-  }
+.about__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: grayscale(20%) contrast(110%);
+}
 
-  &__stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+.about__description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.about__highlight {
+  color: #ff00f0;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 240, 0.5);
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat__item {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 0, 240, 0.1);
+    border-color: rgba(255, 0, 240, 0.5);
+    transform: translateY(-5px);
   }
 }
 
-.stat {
-  &__item {
-    background: rgba(0, 240, 255, 0.1);
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    transition: all 0.3s ease;
+.stat__number {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #00f0ff;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.stat__label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ff00f0;
+}
+
+/* Secciones adicionales */
+.about__section-title {
+  font-family: 'Orbitron', sans-serif;
+  color: #00f0ff;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 3rem 0 1.5rem;
+  position: relative;
+  text-transform: uppercase;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #00f0ff, #ff00f0);
+  }
+}
+
+/* Discografía */
+.about__discography {
+  margin: 3rem 0;
+}
+
+.discography__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.discography__item {
+  background: rgba(20, 20, 60, 0.5);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba(255, 0, 240, 0.5);
+    transform: translateY(-5px);
+  }
+}
+
+.discography__year {
+  display: block;
+  color: #ff00f0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.discography__title {
+  color: #00f0ff;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.discography__type {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Integrantes */
+.about__members {
+  margin-top: 3rem;
+}
+
+.members__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.member__card {
+  background: rgba(20, 20, 60, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba(255, 0, 240, 0.5);
+    transform: translateY(-5px);
     
-    &:hover {
-      background: rgba(255, 0, 240, 0.1);
-      border-color: rgba(255, 0, 240, 0.5);
-      transform: translateY(-5px);
+    .member__image {
+      transform: scale(1.1);
     }
   }
+}
 
-  &__number {
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: #00f0ff;
-    margin-bottom: 0.3rem;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
-  }
+.member__image-container {
+  height: 200px;
+  overflow: hidden;
+}
 
-  &__label {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: #ff00f0;
-  }
+.member__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.member__info {
+  padding: 1.2rem;
+}
+
+.member__name {
+  color: #00f0ff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  margin: 0 0 0.3rem;
+}
+
+.member__role {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  margin: 0 0 0.3rem;
+}
+
+.member__since {
+  color: #ff00f0;
+  font-size: 0.8rem;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
 }
 
 /* -------------------------------------------- */
@@ -110,42 +258,46 @@
 /* -------------------------------------------- */
 
 @media (min-width: 768px) {
-  .about {
-    max-width: 720px;
-
-    &__container {
-      padding: 2rem;
-    }
-
-    &__content {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    &__image {
-      flex: 1;
-    }
-
-    &__info {
-      flex: 1;
-    }
-
-    &__description {
-      font-size: 1.2rem;
-    }
+  .about__container {
+    padding: 3rem;
+  }
+  
+  .about__content {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .about__image {
+    flex: 1;
+  }
+  
+  .about__info {
+    flex: 1;
+  }
+  
+  .discography__grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
   .about {
-    max-width: 960px;
-
-    &__image:hover {
-      border-color: rgba(255, 0, 240, 0.5);
-      
-      .about__img {
-        transform: scale(1.05);
-      }
+    padding: 5rem 2rem;
+  }
+  
+  .about__title {
+    font-size: 3rem;
+  }
+  
+  .about__image:hover {
+    border-color: rgba(255, 0, 240, 0.5);
+    
+    .about__img {
+      transform: scale(1.05);
     }
+  }
+  
+  .members__grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
